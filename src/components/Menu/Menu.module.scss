@@ -1,0 +1,59 @@
+@use '.././shared/variables' as *;
+
+.main {
+  background-color: $background-color;
+}
+.menuContainer {
+  padding-left: 147px;
+  padding-top: 30px;
+}
+.title {
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.32;
+  color: $text-color;
+  margin-top: 80px;
+  margin-bottom: 10px;
+}
+.welcome {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.45;
+  color: $main-color;
+  margin-bottom: 60px;
+}
+.start {
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.45;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+.menuList {
+  display: flex;
+  margin-right: 16px;
+}
+
+.menuItem {
+  margin-right: 16px;
+}
+.menuIcon {
+  display: block;
+  margin-bottom: 20px;
+}
+.menuButton {
+  background-color: $white-color;
+  border-radius: 10px;
+  width: 138px;
+  padding: 10px;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  letter-spacing: 2px;
+  color: $accent-color;
+}
