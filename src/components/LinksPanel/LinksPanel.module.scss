@@ -1,0 +1,37 @@
+@use '.././shared/variables' as *;
+
+.linksList {
+  display: flex;
+
+  & .linksList_item:last-child {
+    margin-right: 0;
+  }
+}
+.linksList_item {
+  margin-right: 10px;
+}
+.linksList_button {
+  background-color: $white-color;
+  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #fbe0dc;
+  }
+  &:focus {
+    background-color: $accent-color;
+  }
+  &:focus .linksList_icon {
+    display: none;
+  }
+  &:focus .linksList_iconHover {
+    display: flex;
+  }
+}
+.linksList_iconHover {
+  display: none;
+}

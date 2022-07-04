@@ -10,19 +10,19 @@ const PanelVoting = () => {
   return (
     <ul className={s.panelVoting_list}>
       <li className={s.panelVoting_item}>
-        <button className={s.panelVoting_buttonLike}>
+        <button className={s.panelVoting_buttonLike} type="button">
           <LikeTransp className={s.icon} />
           <Like className={s.icon_hover} />
         </button>
       </li>
       <li className={s.panelVoting_item}>
-        <button className={s.panelVoting_buttonHart}>
+        <button className={s.panelVoting_buttonHart} type="button">
           <HartTransp className={s.icon} />
           <Hart className={s.icon_hover} />
         </button>
       </li>
       <li className={s.panelVoting_item}>
-        <button className={s.panelVoting_buttonDisLike}>
+        <button className={s.panelVoting_buttonDisLike} type="button">
           <DisLikeTransp className={s.icon} />
           <DisLike className={s.icon_hover} />
         </button>
