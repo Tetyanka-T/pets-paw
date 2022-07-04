@@ -1,0 +1,25 @@
+@use '.././shared/variables' as *;
+
+.searchForm {
+  display: flex;
+  width: 470px;
+  background-color: $white-color;
+  border-radius: 20px;
+  padding: 15px 10px 15px 20px;
+}
+.button {
+  width: 40px;
+  height: 40px;
+  background-color: $background-color-second;
+  border-radius: 10px;
+}
+
+.searchForm_input {
+  display: block;
+  width: 470px;
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: $main-color;
+}
