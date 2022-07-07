@@ -5,7 +5,14 @@
   width: 470px;
   background-color: $white-color;
   border-radius: 20px;
-  padding: 15px 10px 15px 20px;
+  padding: 10px 10px 10px 20px;
+  margin-right: 10px;
+  &:hover {
+    border: 2px solid $background-color-second;
+  }
+  &:focus {
+    border: $accent-color;
+  }
 }
 .button {
   width: 40px;

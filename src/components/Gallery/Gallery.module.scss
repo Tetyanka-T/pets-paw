@@ -1,0 +1,94 @@
+@use '../shared/variables' as *;
+
+.gallery_wrapper {
+  background-color: $white-color;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.galleryButton_container {
+  display: flex;
+  margin-bottom: 20px;
+}
+.galleryButton_comeBack {
+  background: $background-color-second;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+
+  &:focus,
+  &:hover {
+    background-color: $accent-color;
+  }
+  &:focus .button_comeBack,
+  &:hover .button_comeBack {
+    display: none;
+  }
+  &:focus .button_comeBack_white,
+  &:hover .button_comeBack_white {
+    display: flex;
+  }
+}
+.button_comeBack_white {
+  display: none;
+}
+
+.galleryButton_gallery {
+  width: 156px;
+  border-radius: 10px;
+  background-color: $accent-color;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 2px;
+  color: $white-color;
+}
+.galleryButton_download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 290px;
+  width: 143px;
+  border-radius: 10px;
+  background-color: $background-color-second;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  letter-spacing: 2px;
+  color: $accent-color;
+
+  &:focus,
+  &:hover {
+    background-color: $accent-color;
+  }
+  &:focus .button_download,
+  &:hover .button_download {
+    display: none;
+  }
+  &:focus .button_download_white,
+  &:hover .button_download_white {
+    display: flex;
+  }
+  &:focus .button_title,
+  &:hover .button_title {
+    color: $white-color;
+  }
+}
+.button_download_white {
+  display: none;
+}
+
+.button_title {
+  margin-left: 10px;
+}

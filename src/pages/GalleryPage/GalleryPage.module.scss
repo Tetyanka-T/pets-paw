@@ -1,0 +1,9 @@
+@use '../../components/shared/variables' as *;
+
+.gallery_container {
+  padding: 20px;
+  text-align: center;
+}
+.gallery_search {
+  display: flex;
+}
