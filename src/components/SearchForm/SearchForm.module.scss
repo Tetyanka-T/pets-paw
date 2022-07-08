@@ -7,9 +7,7 @@
   border-radius: 20px;
   padding: 10px 10px 10px 20px;
   margin-right: 10px;
-  &:hover {
-    border: 2px solid $background-color-second;
-  }
+
   &:focus {
     border: $accent-color;
   }

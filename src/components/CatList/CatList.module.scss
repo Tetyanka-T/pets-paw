@@ -69,4 +69,8 @@
   bottom: 60px;
   left: 80px;
   right: 80px;
+
+  & svg {
+    fill: $accent-color;
+  }
 }

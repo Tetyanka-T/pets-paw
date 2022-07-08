@@ -1,5 +1,6 @@
 import Menu from 'components/Menu/Menu';
-import GalleryPage from 'pages/GalleryPage/GalleryPage';
+import BreedsPage from '../BreedsPage/BreedsPage';
+// import GalleryPage from 'pages/GalleryPage/GalleryPage';
 import s from './HomePage.module.scss';
 
 const HomePage = () => {
@@ -8,7 +9,8 @@ const HomePage = () => {
       <Menu className={s.homePage_menu} />
       {/* <div className={s.homePage_photoContainer}></div> */}
       <div>
-        <GalleryPage />
+        {/* <GalleryPage /> */}
+        <BreedsPage />
       </div>
     </div>
   );

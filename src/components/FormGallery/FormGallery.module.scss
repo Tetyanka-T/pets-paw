@@ -2,7 +2,6 @@
 
 .formGallery {
   width: 640px;
-
   background-color: $form-color;
   border-radius: 20px;
   padding: 30px 20px 20px 20px;
@@ -23,18 +22,15 @@
 
 select {
   width: 290px;
+  height: 40px;
   background-color: $white-color;
   border-radius: 10px;
-  padding: 12px 14px 12px 10px;
+  padding-left: 10px;
   border: none;
   color: $text-color;
 
   &:hover {
     border: 2px solid $background-color-second;
-  }
-
-  &:focus {
-    border: none;
   }
 }
 select option {
@@ -58,7 +54,6 @@ select option:hover .same-as-selected {
 .formGallery_selectLimit {
   width: 240px;
   margin-right: 10px;
-  padding: 12px 14px 12px 10px;
 }
 .formGallery_lableTitle {
   position: absolute;
@@ -84,18 +79,14 @@ select option:hover .same-as-selected {
   align-items: center;
   background-color: $white-color;
   border-radius: 10px;
+  & svg {
+    fill: $accent-color;
+  }
 
   &:hover {
     background-color: $accent-color;
+    & svg {
+      fill: $white-color;
+    }
   }
-  &:hover .formGallery_showMore_pink {
-    display: none;
-  }
-  &:hover .formGallery_showMore_white {
-    display: flex;
-  }
-}
-
-.formGallery_showMore_white {
-  display: none;
 }
