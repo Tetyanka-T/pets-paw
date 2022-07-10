@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import CatList from 'components/CatList/CatList';
-import FormGallery from 'components/FormGallery/FormGallery';
+import GalleryFilter from 'components/GalleryFilter/GalleryFilter';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import { ReactComponent as DownLoad } from '../../image/download.svg';
 import * as apiService from '../../apiService/apiService';
@@ -27,7 +27,7 @@ const Gallery = () => {
           <span className={s.button_title}>Upload</span>
         </button>
       </div>
-      <FormGallery />
+      <GalleryFilter />
       <CatList cats={cats} />
     </div>
   );

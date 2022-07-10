@@ -3,7 +3,6 @@ import { ReactComponent as Favorite } from '../../image/hart-white.svg';
 import s from './CatList.module.scss';
 
 const CatList = ({ cats }) => {
-  console.log(cats);
   return (
     <>
       {cats && (

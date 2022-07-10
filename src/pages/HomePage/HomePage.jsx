@@ -1,5 +1,6 @@
-import CatCard from 'components/CatCard/CatCard';
 import Menu from 'components/Menu/Menu';
+
+import VotingPage from 'pages/VotingPage/VotingPage';
 // import BreedsPage from '../BreedsPage/BreedsPage';
 // import GalleryPage from 'pages/GalleryPage/GalleryPage';
 import s from './HomePage.module.scss';
@@ -12,7 +13,7 @@ const HomePage = () => {
       <div>
         {/* <GalleryPage /> */}
         {/* <BreedsPage /> */}
-        <CatCard />
+        <VotingPage />
       </div>
     </div>
   );

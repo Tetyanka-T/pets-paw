@@ -1,0 +1,45 @@
+@use '../shared/variables' as *;
+
+.voting_wrapper {
+  padding: 20px;
+  text-align: center;
+  background-color: $white-color;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.voting_buttonContainer {
+  display: flex;
+}
+.voting_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 143px;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  color: $white-color;
+  background-color: $accent-color;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+.card_thumb {
+  width: 640px;
+  height: 360px;
+  border-radius: 20px;
+  border: solid 2px $accent-color;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+
+  & ul {
+    position: absolute;
+    bottom: -45px;
+    left: 180px;
+  }
+}

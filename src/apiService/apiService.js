@@ -11,18 +11,16 @@ export const fetchAllCats = async () => {
   return allCats;
 };
 
-// export const fetchVoites = async () => {
-//   const response = await axios.get('/votes');
+export const fetchVoites = async () => {
+  const response = await axios.get('/votes');
 
-//   const votes = await response.data;
-//   console.log(votes);
-//   return votes;
-// };
+  const votes = await response.data;
+  console.log(votes);
+  return votes;
+};
 export const fetchAllBreeds = async () => {
   const response = await axios.get('/breeds');
-
   const allBreeds = response.data;
-  console.log(allBreeds);
   return allBreeds;
 };
 
