@@ -8,23 +8,37 @@ import { ReactComponent as PageNext } from '../../image/next-grey.svg';
 import * as apiService from '../../apiService/apiService';
 import s from './Breeds.module.scss';
 import CatList from 'components/CatList/CatList';
+// import CatCard from 'components/CatCard/CatCard';
 
 const Breeds = () => {
+  const [cats, setCats] = useState([]);
   const [breeds, setBreeds] = useState([]);
 
   useEffect(() => {
     apiService.fetchAllBreeds().then(setBreeds);
   }, []);
 
+  useEffect(() => {
+    apiService.fetchAllCats().then(setCats);
+  }, []);
+
+  const selectChangeBreeds = e => {
+    setBreeds(e.target.value);
+  };
   return (
     <div className={s.breeds_wrapper}>
       <div className={s.breeds_button}>
         <ComeBackButton />
         <p className={s.breeds_title}>BREEDS</p>
-        <select name="breeds" id="breeds" className={s.select_breeds}>
+        <select
+          value={breeds}
+          id="breeds"
+          onChange={selectChangeBreeds}
+          className={s.select_breeds}
+        >
           <option value="All breeds">All breeds</option>
           {breeds.map(breed => (
-            <option key={breeds.id} value={breed.name}>
+            <option key={breed.id} value={breed.name}>
               {breed.name}
             </option>
           ))}
@@ -42,7 +56,8 @@ const Breeds = () => {
           <SortButtonDown />
         </button>
       </div>
-      <CatList />
+      <CatList cats={cats} />
+
       <div className={s.button_page}>
         <button className={s.button_prev}>
           <PagePrev />

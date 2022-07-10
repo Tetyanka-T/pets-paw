@@ -34,7 +34,7 @@
 select {
   height: 40px;
   padding-left: 8px;
-  background-color: $form-color;
+
   border-radius: 10px;
   font-family: $main-font;
   font-weight: 400;
@@ -52,11 +52,13 @@ select {
 .select_breeds {
   width: 226px;
   margin-left: 10px;
+  background-color: $form-color;
 }
 
 .select_limit {
   width: 110px;
   margin-left: 10px;
+  background-color: $form-color;
 }
 
 button svg {

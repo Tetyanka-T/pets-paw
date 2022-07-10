@@ -1,16 +1,9 @@
-import { useEffect, useState } from 'react';
-import * as apiService from '../../apiService/apiService';
+// import * as apiService from '../../apiService/apiService';
 import { ReactComponent as Favorite } from '../../image/hart-white.svg';
 import s from './CatList.module.scss';
 
-const CatList = () => {
-  const [cats, setCats] = useState([]);
-  // const [breeds, setBreeds] = useState([]);
-
-  useEffect(() => {
-    apiService.fetchAllCats().then(setCats);
-  }, []);
-
+const CatList = ({ cats }) => {
+  console.log(cats);
   return (
     <>
       {cats && (

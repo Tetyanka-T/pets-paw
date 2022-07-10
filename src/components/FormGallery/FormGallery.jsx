@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { ReactComponent as ShowMore } from '../../image/update.svg';
-import * as apiService from '../../apiService/apiService';
+
 import s from './FormGallery.module.scss';
 
 const FormGallery = () => {
   const [breeds, setBreeds] = useState([]);
 
-  useEffect(() => {
-    apiService.fetchAllBreeds().then(setBreeds);
-  }, []);
+  // useEffect(() => {
+  //   apiService.fetchAllBreeds().then(setBreeds);
+  // }, []);
 
   return (
     <form className={s.formGallery}>

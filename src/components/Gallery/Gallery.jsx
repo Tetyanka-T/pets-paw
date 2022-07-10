@@ -1,11 +1,20 @@
+import { useState, useEffect } from 'react';
 import CatList from 'components/CatList/CatList';
 import FormGallery from 'components/FormGallery/FormGallery';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import { ReactComponent as DownLoad } from '../../image/download.svg';
+import * as apiService from '../../apiService/apiService';
 
 import s from './Gallery.module.scss';
 
 const Gallery = () => {
+  const [cats, setCats] = useState([]);
+  // const [breeds, setBreeds] = useState([]);
+
+  useEffect(() => {
+    apiService.fetchAllCats().then(setCats);
+  }, []);
+
   return (
     <div className={s.gallery_wrapper}>
       <div className={s.galleryButton_container}>
@@ -19,7 +28,7 @@ const Gallery = () => {
         </button>
       </div>
       <FormGallery />
-      <CatList />
+      <CatList cats={cats} />
     </div>
   );
 };
