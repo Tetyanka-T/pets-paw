@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import CatList from 'components/CatList/CatList';
 import GalleryFilter from 'components/GalleryFilter/GalleryFilter';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import { ReactComponent as DownLoad } from '../../image/download.svg';
-import * as apiService from '../../apiService/apiService';
+// import * as apiService from '../../apiService/apiService';
 
 import s from './Gallery.module.scss';
 
-const Gallery = () => {
-  const [cats, setCats] = useState([]);
-  // const [breeds, setBreeds] = useState([]);
+const Gallery = ({ cats }) => {
+  // const [cats, setCats] = useState([]);
+  // // const [breeds, setBreeds] = useState([]);
 
-  useEffect(() => {
-    apiService.fetchAllCats().then(setCats);
-  }, []);
+  // useEffect(() => {
+  //   apiService.fetchAllCats().then(setCats);
+  // }, []);
 
   return (
     <div className={s.gallery_wrapper}>

@@ -1,13 +1,18 @@
+import PageContainer from 'components/PageContainer/PageContainer';
+import Container from 'components/Container/Container';
 import Breeds from 'components/Breeds/Breeds';
-import s from './BreedsPage.module.scss';
 import Search from 'components/Search/Search';
+import Menu from 'components/Menu/Menu';
 
 const BreedsPge = () => {
   return (
-    <div className={s.breeds_container}>
-      <Search />
-      <Breeds />
-    </div>
+    <PageContainer>
+      <Menu />
+      <Container>
+        <Search />
+        <Breeds />
+      </Container>
+    </PageContainer>
   );
 };
 

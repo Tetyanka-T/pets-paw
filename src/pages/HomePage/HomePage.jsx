@@ -1,21 +1,16 @@
 import Menu from 'components/Menu/Menu';
+import PageContainer from 'components/PageContainer/PageContainer';
 
-import VotingPage from 'pages/VotingPage/VotingPage';
-// import BreedsPage from '../BreedsPage/BreedsPage';
-// import GalleryPage from 'pages/GalleryPage/GalleryPage';
 import s from './HomePage.module.scss';
 
 const HomePage = () => {
   return (
-    <div className={s.homePage_container}>
+    <PageContainer>
       <Menu className={s.homePage_menu} />
-      {/* <div className={s.homePage_photoContainer}></div> */}
-      <div>
-        {/* <GalleryPage /> */}
-        {/* <BreedsPage /> */}
-        <VotingPage />
+      <div className={s.backgroung}>
+        <div className={s.homePage_photoContainer}></div>
       </div>
-    </div>
+    </PageContainer>
   );
 };
 

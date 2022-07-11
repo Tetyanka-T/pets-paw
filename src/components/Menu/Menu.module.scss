@@ -1,8 +1,8 @@
 @use '.././shared/variables' as *;
 
 .menuContainer {
-  padding-left: 147px;
-  padding-top: 30px;
+  padding-left: 133px;
+  padding-right: 117px;
 }
 .title {
   font-family: $main-font;
@@ -41,16 +41,18 @@
   display: block;
   margin-bottom: 20px;
 }
-.menuButton {
+.menuLink {
   background-color: $white-color;
   border-radius: 10px;
   width: 138px;
-  padding: 10px;
+  height: 36px;
   font-family: $main-font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-align: center;
   letter-spacing: 2px;
   color: $accent-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

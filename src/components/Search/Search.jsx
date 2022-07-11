@@ -2,10 +2,10 @@ import LinksPanel from 'components/LinksPanel/LinksPanel';
 import SearchForm from 'components/SearchForm/SearchForm';
 import s from './Search.module.scss';
 
-const Search = () => {
+const Search = ({ onSearch }) => {
   return (
     <div className={s.search_container}>
-      <SearchForm />
+      <SearchForm onSearch={onSearch} />
       <LinksPanel />
     </div>
   );
