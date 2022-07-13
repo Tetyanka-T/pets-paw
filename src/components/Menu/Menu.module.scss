@@ -31,9 +31,10 @@
 }
 .menuList {
   display: flex;
-  margin-right: 16px;
+  & .menuItem:last-child {
+    margin-right: 0;
+  }
 }
-
 .menuItem {
   margin-right: 16px;
 }
@@ -56,3 +57,6 @@
   justify-content: center;
   align-items: center;
 }
+// .active {
+//   background-color: $accent-color;
+// }

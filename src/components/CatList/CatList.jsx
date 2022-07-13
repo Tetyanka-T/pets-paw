@@ -10,10 +10,10 @@ const CatList = ({ cats }) => {
           {cats.map(cat => (
             <li key={cat.id} className={s.imageList_item}>
               <img src={cat.url} alt={cat.alt} className={s.imageList_photo} />
-              {/* <p className={s.imageList_itemTitle}>breed</p> */}
-              <button className={s.imageList_itemButton} type="button">
+              <p className={s.imageList_itemTitle}>{cat.breeds.name}</p>
+              {/* <button className={s.imageList_itemButton} type="button">
                 <Favorite />
-              </button>
+              </button> */}
             </li>
           ))}
         </ul>
