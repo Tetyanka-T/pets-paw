@@ -1,20 +1,9 @@
-import { useState, useEffect } from 'react';
-import * as apiService from '../../apiService/apiService';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import { ReactComponent as SortButtonUp } from '../../image/sort-up.svg';
 import { ReactComponent as SortButtonDown } from '../../image/sort-down.svg';
 import s from './BreedsFilter.module.scss';
 
-const BreedsFilter = () => {
-  const [breeds, setBreeds] = useState([]);
-
-  useEffect(() => {
-    apiService.fetchAllBreeds().then(setBreeds);
-  }, []);
-
-  const selectChangeBreeds = e => {
-    setBreeds(e.target.value);
-  };
+const BreedsFilter = ({ onChange, breeds }) => {
   return (
     <div className={s.breeds_button}>
       <ComeBackButton />
@@ -22,7 +11,7 @@ const BreedsFilter = () => {
       <select
         value={breeds}
         id="breeds"
-        onChange={selectChangeBreeds}
+        onChange={onChange}
         className={s.select_breeds}
       >
         <option value="All breeds">All breeds</option>

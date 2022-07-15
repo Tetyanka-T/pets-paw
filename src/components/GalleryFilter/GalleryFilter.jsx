@@ -2,7 +2,7 @@ import { ReactComponent as ShowMore } from '../../image/update.svg';
 
 import s from './GalleryFilter.module.scss';
 
-const GalleryFilter = ({ breedId, limit, order, type, onChange, breeds }) => {
+const GalleryFilter = ({ breeds, onChange, limit, order, type }) => {
   return (
     <div className={s.formGallery}>
       <ul className={s.formGallery_listSelect}>
@@ -17,9 +17,9 @@ const GalleryFilter = ({ breedId, limit, order, type, onChange, breeds }) => {
         <li className={s.formGallery_lable}>
           <span className={s.formGallery_lableTitle}>TYPE</span>
           <select name="type" id="type" value={type} onChange={onChange}>
-            <option value="Static">Static</option>
             <option value="All">All</option>
-            <option value="Animated">Animed</option>
+            <option value="jpg">Static</option>
+            <option value="gif">Animed</option>
           </select>
         </li>
         <li className={s.formGallery_lable}>

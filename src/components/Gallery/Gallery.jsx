@@ -8,13 +8,17 @@ import * as apiService from '../../apiService/apiService';
 import s from './Gallery.module.scss';
 
 const Gallery = () => {
-  const [cats, setCats] = useState([]);
-  const [breeds, setBreeds] = useState([]);
-  const [filtrCat, setFiltrCat] = useState('');
+  const [cats, setCats] = useState();
 
+  const [breeds, setBreeds] = useState([]);
+
+  // const [breedId, setBreedId] = useState()
   const [type, setType] = useState('');
   const [order, setOrder] = useState('');
   const [limit, setLimit] = useState('');
+  const [page, SetPage] = useState('');
+  // const [filterdCats, setFilterdCats] = useState(null);
+
   const breedId = breeds.map(breed => breed.id);
 
   useEffect(() => {
@@ -22,20 +26,36 @@ const Gallery = () => {
   }, []);
 
   useEffect(() => {
-    apiService.fetchAllCatsParams(type, order, limit, breedId).then(setCats);
-  }, [breedId, limit, order, type]);
+    apiService.fetchAllCats().then(setCats);
+  }, []);
 
-  const changeFiltred = e => {
-    setBreeds(e.currentTarget.value);
-    setOrder(e.currentTarget.value);
-    setType(e.currentTarget.value);
-    setLimit(e.currentTarget.value);
+  const handleChange = e => {
+    const { name, value } = e.currentTarget;
+
+    switch (name) {
+      case 'type':
+        apiService.fetchType(value).then(setCats);
+        setType(value);
+        break;
+
+      case 'order':
+        apiService.fetchOrder(value).then(setCats);
+        setOrder(value);
+        break;
+
+      case 'limit':
+        apiService.fetchLimit(value).then(setCats);
+        setLimit(value);
+        break;
+      // case 'breeds':
+      //   apiService.fetchCatData(value).then(setCats);
+      //   setBreeds(value);
+      //   break;
+
+      default:
+        return;
+    }
   };
-  // ???
-  const showFiltredCats = () => {
-    return cats.fiter(cat => cat.name.includes(filtrCat));
-  };
-  const filtredCats = showFiltredCats();
 
   return (
     <div className={s.gallery_wrapper}>
@@ -49,8 +69,15 @@ const Gallery = () => {
           <span className={s.button_title}>Upload</span>
         </button>
       </div>
-      <GalleryFilter onChange={changeFiltred} />
-      <CatList cats={filtredCats} />
+      <GalleryFilter
+        limit={limit}
+        order={order}
+        type={type}
+        onChange={handleChange}
+        breeds={breeds}
+        breedId={breedId}
+      />
+      <CatList cats={cats} breedId={breedId} />
     </div>
   );
 };
