@@ -1,0 +1,43 @@
+@use '../shared/variables' as *;
+
+.votingList_item {
+  display: flex;
+  background-color: $form-color;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.votingList_time {
+  width: 61px;
+  border-radius: 5px;
+  margin-right: 20px;
+  background-color: $white-color;
+  font-family: $main-font;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 10px 3px 10px;
+}
+
+.votingList_voice {
+  display: flex;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.votingList_voice_disc {
+  font-family: $main-font;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $main-color;
+  & span {
+    color: $text-color;
+  }
+}

@@ -14,49 +14,44 @@ axios.defaults.headers = {
 // };
 
 export const fetchAllCats = async () => {
-  const response = await axios.get(`images/search?&limit=20&page=0`);
+  const response = await axios.get(`images/search?limit=20&page=0`);
   const allCats = response.data;
   return allCats;
 };
 
-// export const fetchVoites = async () => {
-//   const response = await axios.get('/votes');
-
-//   const votes = await response.data;
-//   console.log(votes);
-//   return votes;
-// };
 export const fetchAllBreeds = async () => {
-  const response = await axios.get('/breeds?limit=67&page=0');
+  const response = await axios.get('/breeds');
   const allBreeds = response.data;
   return allBreeds;
 };
 
-// export const fetchCatForBreedsName = async breedId => {
-//   const response = await axios.get(`/images/search?breed_ids=${breedId}`);
-//   const allBreedsInfo = response.data;
-//   return allBreedsInfo;
+export const fetchCatForBreedsInfo = async breedId => {
+  const response = await axios.get(`/images/search?breed_ids=${breedId}`);
+  const allBreedsInfo = response.data;
+  return allBreedsInfo;
+};
+
+export const getRandomCat = async page => {
+  const response = await axios.get(`/images/search?${page}`);
+  const allBreedsInfo = response.data[0];
+  return allBreedsInfo;
+};
+
+// export const fetchAllBreedIds = async () => {
+//   const cats = await fetchAllBreeds();
+//   const ids = cats.map(cat => cat.id);
+//   return ids;
 // };
 
-export const fetchCatData = async breedId => {
-  const catsDataUrl = '/breeds';
-  const searchImgUrl = `images/search?breed_id=${breedId}`;
-  try {
-    const catsResponse = await axios.get(catsDataUrl);
-    const cats = catsResponse.data;
+// export const getRandomCat = async () => {
+//   const catsIds = await fetchAllBreedIds();
+//   const catId = catsIds[Math.floor(Math.random() * catsIds.length)];
 
-    await Promise.allSettled(
-      cats.map(async cat => {
-        const response = await axios.get(`${searchImgUrl}${cat.id}`);
-        const fullInfo = response.data;
-        return fullInfo;
-      }),
-    );
-  } catch (error) {
-    console.log(error);
-  }
-};
-fetchCatData();
+//   const response = await axios.get(`/images/search?breed_ids=${catId}`);
+//   const catArray = await response.data;
+//   return catArray[0];
+// };
+
 export const fetchOrder = async order => {
   const response = await axios.get(
     `/images/search?limit=20&page=0&order=${order}`,
@@ -86,15 +81,35 @@ export const fetchLimit = async limit => {
 //   return cats;
 // };
 
-// export const fetchAllBreeds = async () => {
-//   const response = await axios.get('/breeds/2');
-//   const allCats = response.data.id;
-//   return allCats;
-// };
+export const getVoices = async () => {
+  const response = await axios.get('/votes');
+  const voices = await response.data;
+  return voices;
+};
+export const postVoices = async data => {
+  const voice = await axios.post('/votes', data);
+  return voice;
+};
 
-// export const fetchCatId = async id => {
-//   const response = await axios.get(`/breeds/2`);
-//   const fullInfo = response.data;
+export const addPhoto = async data => {
+  const addPhoto = axios.post('/images/upload', data);
+  return addPhoto;
+};
 
-//   return fullInfo;
-// };
+export const deletePhoto = async id =>
+  await axios.delete(`/photos/delete/${id}`);
+
+export const addFavouriteCat = async data => {
+  const favourite = await axios.post('/favourites', data);
+  return favourite;
+};
+
+export const unfavourite = async data => {
+  const unfavourite = await axios.post('/unfavourite', data);
+  return unfavourite;
+};
+
+export const getAllFavourites = async data => {
+  const allFavourites = await axios.get('/favourites', data);
+  return allFavourites.data;
+};

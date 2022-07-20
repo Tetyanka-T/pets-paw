@@ -9,7 +9,7 @@ import s from './Gallery.module.scss';
 
 const Gallery = () => {
   const [cats, setCats] = useState();
-
+  console.log(cats);
   const [breeds, setBreeds] = useState([]);
 
   // const [breedId, setBreedId] = useState()
@@ -19,11 +19,20 @@ const Gallery = () => {
   const [page, SetPage] = useState('');
   // const [filterdCats, setFilterdCats] = useState(null);
 
-  const breedId = breeds.map(breed => breed.id);
+  // const breedsInfo = breeds.map(breed => ({
+  //   id: breed.id,
+  //   nameBreed: breed.name,
+  // }));
+
+  // console.log(breedsInfo);
 
   useEffect(() => {
     apiService.fetchAllBreeds().then(setBreeds);
   }, []);
+
+  // useEffect(() => {
+  //   apiService.fetchCatData().then(setCats);
+  // }, []);
 
   useEffect(() => {
     apiService.fetchAllCats().then(setCats);
@@ -48,7 +57,8 @@ const Gallery = () => {
         setLimit(value);
         break;
       // case 'breeds':
-      //   apiService.fetchCatData(value).then(setCats);
+      //   if (value === breedsInfo)
+      //     apiService.fetchCatForBreedsName(breedsInfo).then(setCats);
       //   setBreeds(value);
       //   break;
 
@@ -75,9 +85,9 @@ const Gallery = () => {
         type={type}
         onChange={handleChange}
         breeds={breeds}
-        breedId={breedId}
+        // breedId={breedsInfo}
       />
-      <CatList cats={cats} breedId={breedId} />
+      <CatList cats={cats} />
     </div>
   );
 };

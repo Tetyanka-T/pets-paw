@@ -3,14 +3,16 @@ import PageContainer from 'components/PageContainer/PageContainer';
 import Search from 'components/Search/Search';
 import Voting from 'components/Voting/Voting';
 import Container from 'components/Container/Container';
+import LikePage from 'pages/LikePage/LikePage';
 
 const VotingPage = () => {
   return (
     <PageContainer>
       <Menu />
       <Container>
-        <Search />
-        <Voting />
+        <LikePage />
+        {/* <Search />
+        <Voting /> */}
       </Container>
     </PageContainer>
   );

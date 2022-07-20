@@ -37,9 +37,62 @@
   margin-left: auto;
   position: relative;
 
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 20px;
+  }
+
   & ul {
     position: absolute;
     bottom: -45px;
-    left: 180px;
+    left: 200px;
+  }
+}
+
+.button_next {
+  width: 100px;
+  height: 40px;
+  margin-left: auto;
+  margin-bottom: 20px;
+  background-color: $form-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  & span {
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 2px;
+    color: $main-color;
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background-color: $background-color-second;
+
+    & span {
+      color: $accent-color;
+    }
+    & svg {
+      fill: $accent-color;
+    }
+  }
+  &:focus {
+    background-color: $accent-color;
+
+    & span {
+      color: $white-color;
+    }
+    & svg {
+      fill: $white-color;
+    }
   }
 }
