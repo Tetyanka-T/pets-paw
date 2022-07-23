@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ReactComponent as Like } from '../../image/like-20.svg';
+import { ReactComponent as Dislike } from '../../image/dislike-20.svg';
 import * as apiService from '../../apiService/apiService';
 import s from '../../components/VotingList/VotingList.module.scss';
 import PageContainer from 'components/PageContainer/PageContainer';
@@ -8,7 +8,7 @@ import Container from 'components/Container/Container';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
 
-const LikePage = () => {
+const DislikePage = () => {
   const [voices, SetVoices] = useState();
   const [reqStatus, setReqStatus] = useState('idle');
 
@@ -35,21 +35,22 @@ const LikePage = () => {
       <Menu />
       <Container>
         <ComeBackButton />
-        <h2>Your Liked Photo</h2>
+        <h2>Your Disliked Photo</h2>
         {reqStatus === 'pending' && <Loader />}
         {voices && (
           <ul className={s.votingList}>
             {voices.map(voice => (
               <div>
-                {voice.value === 1 && (
+                {voice.value === 0 && (
                   <li key={voice.id} className={s.votingList_item}>
                     <p className={s.votingList_time}>
                       {voice.created_at.slice(11, -8)}
                     </p>
                     <p className={s.votingList_voice_disc}>
-                      Image ID: <span>{voice.image_id}</span> was added to Like
+                      Image ID: <span>{voice.image_id}</span> was added to
+                      Dislike
                     </p>
-                    <Like />
+                    <Dislike />
                   </li>
                 )}
               </div>
@@ -61,4 +62,4 @@ const LikePage = () => {
   );
 };
 
-export default LikePage;
+export default DislikePage;

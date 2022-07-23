@@ -7,9 +7,9 @@ import { ReactComponent as PageNext } from '../../image/next-grey.svg';
 import s from './Voting.module.scss';
 
 const Voting = () => {
-  const [voices, SetVoices] = useState('');
+  const [voices, SetVoices] = useState([]);
   const [cat, SetCat] = useState('');
-  const [favorite, SetFavorite] = useState('');
+  const [favorite, SetFavorite] = useState([]);
   const sub_id = 'User-123';
   const [page, SetPage] = useState(0);
 
@@ -32,12 +32,8 @@ const Voting = () => {
       value: 1,
     };
     apiService.postVoices(data).then(res => {
-      SetVoices(data);
+      SetVoices(prevState => [...prevState, data]);
     });
-  };
-
-  const onLoadMore = () => {
-    SetPage(prevState => prevState + 1);
   };
 
   const addDislike = data => {
@@ -47,7 +43,7 @@ const Voting = () => {
       value: 0,
     };
     apiService.postVoices(data).then(res => {
-      SetVoices(data);
+      SetVoices(prevState => [...prevState, data]);
     });
   };
 
@@ -56,7 +52,13 @@ const Voting = () => {
       image_id: cat.id,
       sub_id: sub_id,
     };
-    apiService.addFavouriteCat(data).then(SetFavorite);
+    apiService.addFavouriteCat(data).then(res => {
+      SetFavorite();
+    });
+  };
+
+  const onLoadMore = () => {
+    SetPage(prevState => prevState + 1);
   };
 
   return (

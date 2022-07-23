@@ -1,44 +1,95 @@
 import { useState, useEffect } from 'react';
-
 import * as apiService from '../../apiService/apiService';
 import { ReactComponent as PagePrev } from '../../image/prev-grey.svg';
 import { ReactComponent as PageNext } from '../../image/next-grey.svg';
-
+import Loader from 'components/Loader/Loader';
 import s from './Breeds.module.scss';
 import CatList from 'components/CatList/CatList';
 import BreedsFilter from 'components/BreedsFilter/BreedsFilter';
 // import CatCard from 'components/CatCard/CatCard';
 
 const Breeds = () => {
-  const [cats, setCats] = useState([]);
-  // console.log(cats);
-  const [breeds, setBreeds] = useState([]);
+  const [cats, SetCats] = useState([]);
+  const [breeds, SetBreeds] = useState([]);
+  const [reqStatus, setReqStatus] = useState('idle');
+  const [page, SetPage] = useState(0);
+  const [limit, SetLimit] = useState('');
+  // const [filteredBreeds, SetFilteredBreeds] = useState('');
 
-  // useEffect(() => {
-  //   apiService.fetchAllCats().then(setCats);
-  // }, []);
+  useEffect(() => {
+    apiService.fetchAllBreeds().then(SetBreeds);
+  }, []);
 
-  // useEffect(() => {
-  //   apiService.fetchAllBreeds().then(setBreeds);
-  // }, []);
+  useEffect(() => {
+    async function onFetchCats() {
+      try {
+        setReqStatus('pending');
+        const cats = await apiService.fetchAllCats(page);
 
-  // const selectChangeBreeds = e => {
-  //   setBreeds(e.target.value);
+        if (!cats) {
+          throw new Error();
+        }
+        SetCats(cats);
+        setReqStatus('resolved');
+      } catch (err) {
+        setReqStatus('rejected');
+      }
+    }
+    onFetchCats();
+  }, [page]);
+
+  const selectChangeBreeds = e => {
+    const { name, value } = e.currentTarget;
+    switch (name) {
+      case 'limit':
+        apiService.fetchLimit(value).then(SetCats);
+        SetLimit(value);
+        break;
+      case 'breeds':
+        apiService.fetchCatForBreedsInfo(value).then(SetCats);
+        break;
+
+      default:
+        return;
+    }
+  };
+
+  // const sortBreedsUp = () => {
+  //   const filteredBreeds = breeds.sort((a, b) => a.name.localeCompare(b.name));
+  //   console.log(filteredBreeds);
+  //   SetFilteredBreeds(filteredBreeds);
   // };
+
+  const fetchNextPage = () => {
+    SetPage(prevState => prevState + 1);
+  };
+  const fetchPrevPage = () => {
+    SetPage(prevState => prevState - 1);
+  };
 
   return (
     <div className={s.breeds_wrapper}>
-      <BreedsFilter breeds={breeds} />
+      <BreedsFilter
+        breeds={breeds}
+        limit={limit}
+        onChange={selectChangeBreeds}
+        // onClick={sortBreedsUp}
+      />
+      {reqStatus === 'pending' && <Loader />}
       <CatList cats={cats} />
       <div className={s.button_page}>
-        <button className={s.button_prev}>
-          <PagePrev />
-          <span>PREV</span>
-        </button>
-        <button className={s.button_next}>
-          <span>NEXT</span>
-          <PageNext />
-        </button>
+        {page > 1 && (
+          <button className={s.button_prev} onClick={fetchPrevPage}>
+            <PagePrev />
+            <span>PREV</span>
+          </button>
+        )}
+        {cats.length > 0 && (
+          <button className={s.button_next} onClick={fetchNextPage}>
+            <span>NEXT</span>
+            <PageNext />
+          </button>
+        )}
       </div>
     </div>
   );

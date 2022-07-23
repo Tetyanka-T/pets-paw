@@ -1,13 +1,22 @@
 @use '../../components/shared/variables' as *;
 
 .imageList {
+  grid-gap: 20px;
+  counter-reset: li;
   display: grid;
-  grid-gap: 30px;
+  grid-auto-rows: 140px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 140px);
 }
 
+.imageList_item:nth-child(10n + 1),
+.imageList_item:nth-child(10n + 8) {
+  grid-column: auto/span 1;
+  grid-row: auto/span 2;
+}
 .imageList_item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
   position: relative;
 
   &:hover .imageList_photo {
@@ -15,27 +24,28 @@
     filter: blur(2px);
     transition: filter 0.3s ease-in;
     transform: scale(1.1);
-    // background-color: rgba(255, 134, 142, 0.6);
   }
-  &:hover .imageList_itemTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  &:hover .imageList_itemButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  // &:hover .imageList_itemTitle {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+  //   &:hover .imageList_itemButton {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
+  //   &:focus .imageList_itemButton{
+  // background-color: $accent-color;
+
+  //   }
 }
 
 .imageList_photo {
-  width: 100%;
+  display: block;
   height: 100%;
   object-fit: cover;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
+  width: 100%;
 }
 
 .imageList_itemTitle {

@@ -2,65 +2,66 @@ import { useState, useEffect } from 'react';
 import CatList from 'components/CatList/CatList';
 import GalleryFilter from 'components/GalleryFilter/GalleryFilter';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
-import { ReactComponent as DownLoad } from '../../image/download.svg';
+import Loader from 'components/Loader/Loader';
+// import { ReactComponent as DownLoad } from '../../image/download.svg';
 import * as apiService from '../../apiService/apiService';
 
 import s from './Gallery.module.scss';
 
 const Gallery = () => {
-  const [cats, setCats] = useState();
-  console.log(cats);
-  const [breeds, setBreeds] = useState([]);
-
-  // const [breedId, setBreedId] = useState()
-  const [type, setType] = useState('');
-  const [order, setOrder] = useState('');
-  const [limit, setLimit] = useState('');
-  const [page, SetPage] = useState('');
-  // const [filterdCats, setFilterdCats] = useState(null);
-
-  // const breedsInfo = breeds.map(breed => ({
-  //   id: breed.id,
-  //   nameBreed: breed.name,
-  // }));
-
-  // console.log(breedsInfo);
+  const [cats, SetCats] = useState();
+  const [breeds, SetBreeds] = useState([]);
+  const [type, SetType] = useState('');
+  const [order, SetOrder] = useState('');
+  const [limit, SetLimit] = useState('');
+  const [page, SetPage] = useState(0);
+  const [reqStatus, setReqStatus] = useState('idle');
 
   useEffect(() => {
-    apiService.fetchAllBreeds().then(setBreeds);
-  }, []);
+    async function onFetchCats() {
+      try {
+        setReqStatus('pending');
+        const breeds = await apiService.fetchAllBreeds();
+        const cats = await apiService.fetchAllCats(page);
 
-  // useEffect(() => {
-  //   apiService.fetchCatData().then(setCats);
-  // }, []);
+        if (!breeds && !cats) {
+          throw new Error();
+        }
+        SetBreeds(breeds);
+        SetCats(cats);
+        setReqStatus('resolved');
+      } catch (err) {
+        setReqStatus('rejected');
+      }
+    }
+    onFetchCats();
+  }, [page]);
 
-  useEffect(() => {
-    apiService.fetchAllCats().then(setCats);
-  }, []);
+  const onLoadMore = () => {
+    SetPage(prevState => prevState + 1);
+  };
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
       case 'type':
-        apiService.fetchType(value).then(setCats);
-        setType(value);
+        apiService.fetchType(value).then(SetCats);
+        SetType(value);
         break;
 
       case 'order':
-        apiService.fetchOrder(value).then(setCats);
-        setOrder(value);
+        apiService.fetchOrder(value).then(SetCats);
+        SetOrder(value);
         break;
 
       case 'limit':
-        apiService.fetchLimit(value).then(setCats);
-        setLimit(value);
+        apiService.fetchLimit(value).then(SetCats);
+        SetLimit(value);
         break;
-      // case 'breeds':
-      //   if (value === breedsInfo)
-      //     apiService.fetchCatForBreedsName(breedsInfo).then(setCats);
-      //   setBreeds(value);
-      //   break;
+      case 'breeds':
+        apiService.fetchCatForBreedsInfo(value).then(SetCats);
+        break;
 
       default:
         return;
@@ -74,10 +75,10 @@ const Gallery = () => {
         <button type="button" className={s.galleryButton_gallery}>
           GALLERY
         </button>
-        <button type="button" className={s.galleryButton_download}>
+        {/* <button type="button" className={s.galleryButton_download}>
           <DownLoad />
           <span className={s.button_title}>Upload</span>
-        </button>
+        </button> */}
       </div>
       <GalleryFilter
         limit={limit}
@@ -85,8 +86,9 @@ const Gallery = () => {
         type={type}
         onChange={handleChange}
         breeds={breeds}
-        // breedId={breedsInfo}
+        onClick={onLoadMore}
       />
+      {reqStatus === 'pending' && <Loader />}
       <CatList cats={cats} />
     </div>
   );

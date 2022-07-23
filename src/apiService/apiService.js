@@ -5,16 +5,8 @@ axios.defaults.headers = {
   'x-api-key': 'a9d1b349-6f3f-4e78-ad60-7101f74c310a',
 };
 
-// export const fetchAllCatsParams = async (limit, type, order, breedId, page) => {
-//   const response = await axios.get(
-//     `images/search?breed_ids=${breedId}&page=${page}&limit=${limit}&mime_types=${type}&order=${order}`,
-//   );
-//   const allCats = response.data;
-//   return allCats;
-// };
-
-export const fetchAllCats = async () => {
-  const response = await axios.get(`images/search?limit=20&page=0`);
+export const fetchAllCats = async page => {
+  const response = await axios.get(`images/search?limit=10&page=${page}`);
   const allCats = response.data;
   return allCats;
 };
@@ -24,33 +16,25 @@ export const fetchAllBreeds = async () => {
   const allBreeds = response.data;
   return allBreeds;
 };
+export const fetchAllBreedIds = async () => {
+  const cats = await fetchAllBreeds();
+  const ids = cats.map(cat => cat.id);
+  return ids;
+};
 
 export const fetchCatForBreedsInfo = async breedId => {
-  const response = await axios.get(`/images/search?breed_ids=${breedId}`);
+  const response = await axios.get(
+    `/images/search?breed_ids=${breedId}&limit=10&page=0`,
+  );
   const allBreedsInfo = response.data;
   return allBreedsInfo;
 };
 
 export const getRandomCat = async page => {
   const response = await axios.get(`/images/search?${page}`);
-  const allBreedsInfo = response.data[0];
-  return allBreedsInfo;
+  const randomCat = response.data[0];
+  return randomCat;
 };
-
-// export const fetchAllBreedIds = async () => {
-//   const cats = await fetchAllBreeds();
-//   const ids = cats.map(cat => cat.id);
-//   return ids;
-// };
-
-// export const getRandomCat = async () => {
-//   const catsIds = await fetchAllBreedIds();
-//   const catId = catsIds[Math.floor(Math.random() * catsIds.length)];
-
-//   const response = await axios.get(`/images/search?breed_ids=${catId}`);
-//   const catArray = await response.data;
-//   return catArray[0];
-// };
 
 export const fetchOrder = async order => {
   const response = await axios.get(
@@ -75,11 +59,11 @@ export const fetchLimit = async limit => {
   return limitPhoto;
 };
 
-// export const fetchSearchCat = async (searchCat, page) => {
-//   const response = await axios.get(`/search/&query=${searchCat}&page=${page}`);
-//   const cats = response.data;
-//   return cats;
-// };
+export const fetchSearchCats = async (searchCat, page) => {
+  const response = await axios.get(`/breeds/search?q=${searchCat}`);
+  const cats = response.data;
+  return cats;
+};
 
 export const getVoices = async () => {
   const response = await axios.get('/votes');

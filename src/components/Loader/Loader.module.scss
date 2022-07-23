@@ -1,0 +1,8 @@
+@use '.././shared/variables' as *;
+
+.spin {
+  text-align: center;
+  color: $accent-color;
+  height: 80px;
+  width: 80px;
+}

@@ -1,18 +1,21 @@
 import Menu from 'components/Menu/Menu';
 import PageContainer from 'components/PageContainer/PageContainer';
-import Search from 'components/Search/Search';
+import SearchForm from 'components/SearchForm/SearchForm';
+import LinksPanel from 'components/LinksPanel/LinksPanel';
 import Voting from 'components/Voting/Voting';
 import Container from 'components/Container/Container';
-import LikePage from 'pages/LikePage/LikePage';
+import s from '../BreedsPage/BreedsPage.module.scss';
 
 const VotingPage = () => {
   return (
     <PageContainer>
       <Menu />
       <Container>
-        <LikePage />
-        {/* <Search />
-        <Voting /> */}
+        <div className={s.search}>
+          <SearchForm />
+          <LinksPanel />
+        </div>
+        <Voting />
       </Container>
     </PageContainer>
   );

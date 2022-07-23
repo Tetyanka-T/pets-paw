@@ -3,7 +3,7 @@ import { ReactComponent as SortButtonUp } from '../../image/sort-up.svg';
 import { ReactComponent as SortButtonDown } from '../../image/sort-down.svg';
 import s from './BreedsFilter.module.scss';
 
-const BreedsFilter = ({ onChange, breeds }) => {
+const BreedsFilter = ({ onChange, breeds, onClick, limit }) => {
   return (
     <div className={s.breeds_button}>
       <ComeBackButton />
@@ -14,20 +14,26 @@ const BreedsFilter = ({ onChange, breeds }) => {
         onChange={onChange}
         className={s.select_breeds}
       >
-        <option value="All breeds">All breeds</option>
+        <option value="all">All breeds</option>
         {breeds.map(breed => (
-          <option key={breed.id} value={breed.name}>
+          <option key={breed.id} value={breed.id}>
             {breed.name}
           </option>
         ))}
       </select>
-      <select name="limit" id="limit" className={s.select_limit}>
+      <select
+        name="limit"
+        id="limit"
+        value={limit}
+        className={s.select_limit}
+        onChange={onChange}
+      >
         <option value="5">Limit: 5</option>
         <option value="10">Limit: 10</option>
         <option value="15">Limit: 15</option>
         <option value="20">Limit: 20</option>
       </select>
-      <button type="button" className={s.button_sort}>
+      <button type="button" className={s.button_sort} onClick={() => onClick()}>
         <SortButtonUp />
       </button>
       <button type="button" className={s.button_sort}>
