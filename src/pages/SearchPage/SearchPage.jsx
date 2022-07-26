@@ -12,9 +12,7 @@ import ComeBackButton from 'components/ComeBack/ComeBackButton';
 
 const SearchPage = () => {
   const [searchCat, SetSearchCat] = useState(null);
-  console.log(searchCat);
   const [cats, SetCats] = useState([]);
-  console.log(cats);
   const [page, setPage] = useState(0);
   const [reqStatus, setReqStatus] = useState('idle');
 
@@ -33,7 +31,7 @@ const SearchPage = () => {
           throw new Error();
         }
 
-        SetCats(prevState => [...prevState, ...cats]);
+        SetCats(cats);
         setReqStatus('resolved');
       } catch (err) {
         setReqStatus('rejected');
@@ -42,16 +40,16 @@ const SearchPage = () => {
     onFetchCats();
   }, [page, searchCat]);
 
-  // const reset = () => {
-  //   SetSearchCat(null);
-  //   // SetCats([]);
-  //   setPage(1);
-  //   setReqStatus('idle');
-  // };
+  const reset = () => {
+    SetSearchCat(null);
+    SetCats([]);
+    setPage(1);
+    setReqStatus('idle');
+  };
 
   const handleSearchCat = searchCat => {
+    reset();
     SetSearchCat(searchCat);
-    // SetSearchCat(null);
   };
   return (
     <PageContainer>

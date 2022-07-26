@@ -14,7 +14,6 @@ const Breeds = () => {
   const [reqStatus, setReqStatus] = useState('idle');
   const [page, SetPage] = useState(0);
   const [limit, SetLimit] = useState('');
-  // const [filteredBreeds, SetFilteredBreeds] = useState('');
 
   useEffect(() => {
     apiService.fetchAllBreeds().then(SetBreeds);
@@ -54,11 +53,14 @@ const Breeds = () => {
     }
   };
 
-  // const sortBreedsUp = () => {
-  //   const filteredBreeds = breeds.sort((a, b) => a.name.localeCompare(b.name));
-  //   console.log(filteredBreeds);
-  //   SetFilteredBreeds(filteredBreeds);
-  // };
+  const sortBreeds = e => {
+    if (e.currentTarget.name.sortUp) {
+      apiService.fetchSortUp().then(SetCats);
+    }
+    if (e.currentTarget.name.sortDown) {
+      apiService.fetchSortDown().then(SetCats);
+    }
+  };
 
   const fetchNextPage = () => {
     SetPage(prevState => prevState + 1);
@@ -73,7 +75,7 @@ const Breeds = () => {
         breeds={breeds}
         limit={limit}
         onChange={selectChangeBreeds}
-        // onClick={sortBreedsUp}
+        onClick={sortBreeds}
       />
       {reqStatus === 'pending' && <Loader />}
       <CatList cats={cats} />

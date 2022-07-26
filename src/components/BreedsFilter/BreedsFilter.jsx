@@ -33,10 +33,22 @@ const BreedsFilter = ({ onChange, breeds, onClick, limit }) => {
         <option value="15">Limit: 15</option>
         <option value="20">Limit: 20</option>
       </select>
-      <button type="button" className={s.button_sort} onClick={() => onClick()}>
+
+      <button
+        type="button"
+        name="sortUp"
+        className={s.button_sort}
+        onClick={onClick}
+      >
         <SortButtonUp />
       </button>
-      <button type="button" className={s.button_sort}>
+
+      <button
+        type="button"
+        name="sortDown"
+        className={s.button_sort}
+        onClick={onClick}
+      >
         <SortButtonDown />
       </button>
     </div>

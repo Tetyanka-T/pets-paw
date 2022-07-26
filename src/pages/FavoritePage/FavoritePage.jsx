@@ -10,7 +10,6 @@ import Loader from 'components/Loader/Loader';
 
 const FavoritePage = () => {
   const [favorite, SetFavorite] = useState('');
-  console.log(favorite);
   const [reqStatus, setReqStatus] = useState('idle');
 
   useEffect(() => {
