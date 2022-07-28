@@ -1,17 +1,16 @@
 @use '../shared/variables' as *;
 
 .formGallery {
-  width: 640px;
   background-color: $form-color;
   border-radius: 20px;
   padding: 30px 20px 20px 20px;
   margin-bottom: 20px;
+  max-width: 600px;
 }
 
 .formGallery_listSelect {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 20px;
 }
 
 .formGallery_listSelect .formGallery_lable:nth-child(even) {
@@ -22,7 +21,7 @@
 }
 
 select {
-  width: 290px;
+  width: 270px;
   height: 40px;
   background-color: $white-color;
   border-radius: 10px;
@@ -53,7 +52,7 @@ select option:hover .same-as-selected {
   background-color: $background-color-second;
 }
 .formGallery_selectLimit {
-  width: 240px;
+  width: 220px;
   margin-right: 10px;
 }
 .formGallery_lableTitle {

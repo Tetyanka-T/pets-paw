@@ -1,29 +1,18 @@
 @use '../../components/shared/variables' as *;
 
-.homePage_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  position: relative;
-}
-
-.homePage_menu {
-  position: sticky;
-  top: 50%;
-}
 .homePage_photoContainer {
   height: 900px;
-  width: 770px;
+  width: 670px;
   background-image: url(../../image/girl-and-pet.png);
   position: absolute;
-  top: -35px;
-  left: -55px;
+  top: -55px;
+  left: -40px;
 }
 .backgroung {
   border-radius: 20px;
   background-image: url(../../image/backgraund.png);
   height: 840px;
-  width: 680px;
+  width: 480px;
   background-size: 640px 840px;
   position: relative;
 }

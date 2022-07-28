@@ -1,8 +1,10 @@
 @use '.././shared/variables' as *;
 
 .menuContainer {
-  padding-left: 133px;
-  padding-right: 117px;
+  padding-left: 100px;
+  padding-right: 72px;
+  position: sticky;
+  top: 10px;
 }
 .title {
   font-family: $main-font;

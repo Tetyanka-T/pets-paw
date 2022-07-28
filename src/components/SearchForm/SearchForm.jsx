@@ -18,12 +18,11 @@ const SearchForm = ({ onSearch }) => {
         autoFocus
         placeholder="Search for breeds by name"
       />
-
-      <button type="submit" className={s.button}>
-        <Link to="/search">
+      <Link to="/search">
+        <button type="submit" className={s.button}>
           <Search />
-        </Link>
-      </button>
+        </button>
+      </Link>
     </form>
   );
 };

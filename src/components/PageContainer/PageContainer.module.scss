@@ -1,9 +1,9 @@
 @use '.././shared/variables' as *;
 
 .container {
-  max-width: $desktop;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
+  width: $desktop;
   display: flex;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
 }
