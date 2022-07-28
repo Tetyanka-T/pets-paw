@@ -11,10 +11,13 @@ const BreedsFilter = ({ onChange, breeds, onClick, limit }) => {
       <select
         value={breeds}
         id="breeds"
+        name="breeds"
         onChange={onChange}
         className={s.select_breeds}
       >
-        <option value="all">All breeds</option>
+        <option key="all" value="all">
+          All breeds
+        </option>
         {breeds.map(breed => (
           <option key={breed.id} value={breed.id}>
             {breed.name}

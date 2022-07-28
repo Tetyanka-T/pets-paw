@@ -55,7 +55,6 @@ const Breeds = () => {
 
   const sortBreeds = e => {
     const { name } = e.currentTarget;
-    console.log(name);
     if (name) {
       apiService.fetchOrder(name).then(SetCats);
     }
