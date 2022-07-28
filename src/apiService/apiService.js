@@ -59,17 +59,6 @@ export const fetchLimit = async limit => {
   return limitPhoto;
 };
 
-export const fetchSortUp = async () => {
-  const response = await axios.get(`/images/search?limit=20&order=Desc`);
-  const sort = response.data;
-  return sort;
-};
-
-export const fetchSortDown = async () => {
-  const response = await axios.get(`/images/search?limit=20&order=Asc`);
-  const sort = response.data;
-  return sort;
-};
 export const fetchSearchCats = async (searchCat, page) => {
   const response = await axios.get(
     `/breeds/search?q=${searchCat}&page=${page}&limit=10`,

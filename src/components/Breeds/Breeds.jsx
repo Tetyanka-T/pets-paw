@@ -54,11 +54,13 @@ const Breeds = () => {
   };
 
   const sortBreeds = e => {
-    if (e.currentTarget.name.sortUp) {
-      apiService.fetchSortUp().then(SetCats);
+    const { name } = e.currentTarget;
+    console.log(name);
+    if (name) {
+      apiService.fetchOrder(name).then(SetCats);
     }
-    if (e.currentTarget.name.sortDown) {
-      apiService.fetchSortDown().then(SetCats);
+    if (name) {
+      apiService.fetchOrder(name).then(SetCats);
     }
   };
 

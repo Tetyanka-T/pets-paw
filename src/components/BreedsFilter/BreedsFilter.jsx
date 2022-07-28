@@ -36,7 +36,7 @@ const BreedsFilter = ({ onChange, breeds, onClick, limit }) => {
 
       <button
         type="button"
-        name="sortUp"
+        name="Asc"
         className={s.button_sort}
         onClick={onClick}
       >
@@ -45,7 +45,7 @@ const BreedsFilter = ({ onChange, breeds, onClick, limit }) => {
 
       <button
         type="button"
-        name="sortDown"
+        name="Desc"
         className={s.button_sort}
         onClick={onClick}
       >
