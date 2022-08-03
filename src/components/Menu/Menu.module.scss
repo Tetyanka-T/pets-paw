@@ -44,21 +44,3 @@
   display: block;
   margin-bottom: 20px;
 }
-.inactive {
-  background-color: $white-color;
-  border-radius: 10px;
-  width: 138px;
-  height: 36px;
-  font-family: $main-font;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  letter-spacing: 2px;
-  color: $accent-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.active {
-  background-color: $accent-color;
-}

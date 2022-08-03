@@ -2,17 +2,21 @@
 
 .imageList {
   grid-gap: 20px;
-  counter-reset: li;
   display: grid;
   grid-auto-rows: 140px;
   grid-template-columns: repeat(3, 1fr);
 }
-
 .imageList_item:nth-child(10n + 1),
-.imageList_item:nth-child(10n + 8) {
+.imageList_item:nth-child(8n + 8) {
   grid-column: auto/span 1;
   grid-row: auto/span 2;
 }
+.imageList_item:nth-child(10n + 4),
+.imageList_item:nth-child(10n + 9) {
+  grid-column: auto/span 2;
+  grid-row: auto/span 2;
+}
+
 .imageList_item {
   position: relative;
   border-radius: 20px;
