@@ -2,14 +2,16 @@
 
 .votingList_item {
   display: flex;
-  justify-content: start;
-  align-items: start;
   width: 570px;
   background-color: $form-color;
   margin-top: 15px;
   margin-bottom: 10px;
   padding: 15px;
   border-radius: 10px;
+  & svg {
+    display: flex;
+    margin-left: auto;
+  }
 }
 
 .votingList_time {
@@ -26,16 +28,7 @@
   align-items: center;
   padding: 3px 10px 3px 10px;
 }
-.votingList_voice {
-  display: flex;
 
-  & svg {
-    display: flex;
-    width: 20px;
-    height: 20px;
-    margin-right: auto;
-  }
-}
 .votingList_voice_disc {
   font-family: $main-font;
   font-size: 16px;

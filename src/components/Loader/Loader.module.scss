@@ -1,7 +1,8 @@
 @use '.././shared/variables' as *;
 
 .spin {
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: $accent-color;
   height: 80px;
   width: 80px;

@@ -3,6 +3,7 @@ import * as apiService from '../../apiService/apiService';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import PanelVoting from 'components/PanelVoting/PanelVoting';
 import VotingList from 'components/VotingList/VotingList';
+import Loader from 'components/Loader/Loader';
 import { ReactComponent as PageNext } from '../../image/next-grey.svg';
 import s from './Voting.module.scss';
 
@@ -12,13 +13,42 @@ const Voting = () => {
   const [favorite, SetFavorite] = useState([]);
   const sub_id = 'User-123';
   const [page, SetPage] = useState(0);
+  const [reqStatus, SetReqStatus] = useState('idle');
 
   useEffect(() => {
-    apiService.getRandomCat(page).then(SetCat);
+    async function onFetchCat() {
+      try {
+        SetReqStatus('pending');
+        const cat = await apiService.getRandomCat(page);
+
+        if (!cat) {
+          throw new Error();
+        }
+        SetCat(cat);
+        SetReqStatus('resolved');
+      } catch (err) {
+        SetReqStatus('rejected');
+      }
+    }
+    onFetchCat();
   }, [page]);
 
   useEffect(() => {
-    apiService.getVoices().then(SetVoices);
+    async function onFetchVoice() {
+      try {
+        SetReqStatus('pending');
+        const voice = await apiService.getVoices();
+
+        if (!voice) {
+          throw new Error();
+        }
+        SetVoices(voice);
+        SetReqStatus('resolved');
+      } catch (err) {
+        SetReqStatus('rejected');
+      }
+    }
+    onFetchVoice();
   }, []);
 
   useEffect(() => {
@@ -67,18 +97,22 @@ const Voting = () => {
         <ComeBackButton />
         <p className={s.voting_title}>VOTING</p>
       </div>
-      <div className={s.card_thumb}>
-        <img src={cat.url} alt={cat.alt}></img>
-        <PanelVoting
-          addDislike={addDislike}
-          addLike={addLike}
-          addFavorite={addFavorite}
-        />
-      </div>
+      {reqStatus === 'pending' && <Loader />}
+      {cat && (
+        <div className={s.card_thumb}>
+          <img src={cat.url} alt={cat.alt}></img>
+          <PanelVoting
+            addDislike={addDislike}
+            addLike={addLike}
+            addFavorite={addFavorite}
+          />
+        </div>
+      )}
       <button className={s.button_next} onClick={onLoadMore}>
         <span>NEXT</span>
         <PageNext />
       </button>
+      {reqStatus === 'pending' && <Loader />}
       {voices && favorite && <VotingList voices={voices} favorite={favorite} />}
     </div>
   );

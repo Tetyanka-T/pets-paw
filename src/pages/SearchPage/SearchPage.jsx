@@ -23,9 +23,7 @@ const SearchPage = () => {
     async function onFetchCats() {
       try {
         setReqStatus('pending');
-
         const cats = await apiService.fetchSearchCats(searchCat, page);
-        console.log(cats);
 
         if (!cats.length) {
           throw new Error();

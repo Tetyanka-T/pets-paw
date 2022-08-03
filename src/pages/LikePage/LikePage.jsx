@@ -49,7 +49,7 @@ const LikePage = () => {
                     <p className={s.votingList_voice_disc}>
                       Image ID: <span>{voice.image_id}</span> was added to Like
                     </p>
-                    <Like />
+                    <Like width="20px" height="20px" />
                   </li>
                 )}
               </div>

@@ -4,15 +4,6 @@ import { ReactComponent as Favorite } from '../../image/fav-20.svg';
 import s from './VotingList.module.scss';
 
 const VotingList = ({ voices, favorite }) => {
-  const getTime = () => {
-    let h = new Date().getHours();
-    let m = new Date().getMinutes();
-    h = h < 10 ? '0' + h : h;
-    m = m < 10 ? '0' + m : m;
-    let time = h + ':' + m;
-    return time;
-  };
-
   return (
     <>
       {voices && (
@@ -20,23 +11,23 @@ const VotingList = ({ voices, favorite }) => {
           {voices.map(voice => (
             <li key={voice.id} className={s.votingList_item}>
               <span className={s.votingList_time}>
-                {getTime(voice.created_at)}
+                {voice.created_at.slice(11, -8)}
               </span>
               {voice.value === 1 && (
-                <div className={s.votingList_voice}>
+                <>
                   <p className={s.votingList_voice_disc}>
                     Image ID: <span>{voice.image_id}</span> was added to Like
                   </p>
-                  <Like />
-                </div>
+                  <Like width="20px" height="20px" />
+                </>
               )}
               {voice.value === 0 && (
-                <div className={s.votingList_voice}>
+                <>
                   <p className={s.votingList_voice_disc}>
                     Image ID: <span>{voice.image_id}</span> was added to Dislike
                   </p>
-                  <Dislike />
-                </div>
+                  <Dislike width="20px" height="20px" />
+                </>
               )}
             </li>
           ))}
@@ -46,11 +37,13 @@ const VotingList = ({ voices, favorite }) => {
         <ul className={s.votingList}>
           {favorite.map(fav => (
             <li key={fav.id} className={s.votingList_item}>
-              <p className={s.votingList_time}>{getTime(fav.created_at)}</p>
+              <p className={s.votingList_time}>
+                {fav.created_at.slice(11, -8)}
+              </p>
               <p className={s.votingList_voice_disc}>
                 Image ID: <span>{fav.image_id}</span> was added to Favorite
               </p>
-              <Favorite />
+              <Favorite width="20px" height="20px" />
             </li>
           ))}
         </ul>

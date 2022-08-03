@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ReactComponent as Dislike } from '../../image/dislike-20.svg';
 import * as apiService from '../../apiService/apiService';
-import s from '../../components/VotingList/VotingList.module.scss';
 import PageContainer from 'components/PageContainer/PageContainer';
 import Menu from 'components/Menu/Menu';
 import Container from 'components/Container/Container';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
+import s from '../../components/VotingList/VotingList.module.scss';
 
 const DislikePage = () => {
   const [voices, SetVoices] = useState();
@@ -50,7 +50,7 @@ const DislikePage = () => {
                       Image ID: <span>{voice.image_id}</span> was added to
                       Dislike
                     </p>
-                    <Dislike />
+                    <Dislike width="20px" height="20px" />
                   </li>
                 )}
               </div>
