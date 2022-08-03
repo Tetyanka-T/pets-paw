@@ -40,3 +40,34 @@ input {
   outline: none;
   border: none;
 }
+
+a.inactive {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 138px;
+  height: 36px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 2px;
+  color: #ff868e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a.active {
+  background-color: #ff868e;
+  color: #fff;
+  border-radius: 10px;
+  width: 138px;
+  height: 36px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -19,19 +19,28 @@ const Menu = () => {
       <ul className={s.menuList}>
         <li className={s.menuItem}>
           <Voting className={s.menuIcon} />
-          <NavLink to="/voting" className={s.menuLink}>
+          <NavLink
+            to="/voting"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
             VOTING
           </NavLink>
         </li>
         <li className={s.menuItem}>
           <Breeds className={s.menuIcon} />
-          <NavLink to="/breeds" className={s.menuLink}>
+          <NavLink
+            to="/breeds"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
             BREEDS
           </NavLink>
         </li>
         <li className={s.menuItem}>
           <Gallery className={s.menuIcon} />
-          <NavLink to="/gallery" className={s.menuLink}>
+          <NavLink
+            to="/gallery"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
             GALLERY
           </NavLink>
         </li>

@@ -44,7 +44,7 @@
   display: block;
   margin-bottom: 20px;
 }
-.menuLink {
+.inactive {
   background-color: $white-color;
   border-radius: 10px;
   width: 138px;
@@ -59,6 +59,6 @@
   justify-content: center;
   align-items: center;
 }
-// .active {
-//   background-color: $accent-color;
-// }
+.active {
+  background-color: $accent-color;
+}
