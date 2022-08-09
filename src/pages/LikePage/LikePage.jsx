@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ReactComponent as Like } from '../../image/like-20.svg';
+import { ReactComponent as Delete } from '../../image/cansel.svg';
 import * as apiService from '../../apiService/apiService';
 import s from '../../components/VotingList/VotingList.module.scss';
 import PageContainer from 'components/PageContainer/PageContainer';
@@ -30,6 +31,11 @@ const LikePage = () => {
     onFetchVoices();
   }, []);
 
+  const deleteVote = async voteId => {
+    await apiService.deleteVoice(voteId);
+    SetVoices(voices => voices.filter(voice => voice.id !== voteId));
+  };
+
   return (
     <PageContainer>
       <Menu />
@@ -49,7 +55,13 @@ const LikePage = () => {
                     <p className={s.votingList_voice_disc}>
                       Image ID: <span>{voice.image_id}</span> was added to Like
                     </p>
-                    <Like width="20px" height="20px" />
+                    <div className={s.button_container}>
+                      <Like width="20px" height="20px" />
+                      <Delete
+                        className={s.button_delete}
+                        onClick={() => deleteVote(voice.id)}
+                      />
+                    </div>
                   </li>
                 )}
               </div>

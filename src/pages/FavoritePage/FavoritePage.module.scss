@@ -2,4 +2,69 @@
 
 .favList {
   margin-top: 15px;
+
+  &.li {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.favList_img {
+  width: 600px;
+  height: 360px;
+  border-radius: 20px;
+  border: solid 2px $accent-color;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+  }
+}
+
+.favList_item {
+  display: flex;
+  width: 570px;
+  background-color: $form-color;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.favList_time {
+  width: 61px;
+  border-radius: 5px;
+  margin-right: 20px;
+  background-color: $white-color;
+  font-family: $main-font;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 10px 3px 10px;
+}
+
+.favList_voice_disc {
+  font-family: $main-font;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $main-color;
+  & span {
+    color: $text-color;
+  }
+}
+.button_container {
+  display: flex;
+  margin-left: auto;
+}
+.button_delete {
+  fill: $accent-color;
+  margin-left: 5px;
 }

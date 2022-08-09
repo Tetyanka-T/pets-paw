@@ -76,6 +76,9 @@ export const postVoices = async data => {
   const voice = await axios.post('/votes', data);
   return voice;
 };
+export const deleteVoice = async voteId => {
+  await axios.delete(`/votes/${voteId}`);
+};
 
 export const addPhoto = async data => {
   const addPhoto = axios.post('/images/upload', data);
@@ -90,9 +93,8 @@ export const addFavouriteCat = async data => {
   return favourite;
 };
 
-export const unfavourite = async data => {
-  const unfavourite = await axios.post('/unfavourite', data);
-  return unfavourite;
+export const deleteFavouriteCat = async favId => {
+  await axios.delete(`/favourites/${favId}`);
 };
 
 export const getAllFavourites = async data => {

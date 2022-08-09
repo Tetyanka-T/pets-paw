@@ -76,6 +76,10 @@ const Voting = () => {
       SetVoices(prevState => [...prevState, data]);
     });
   };
+  const deleteVote = async voteId => {
+    await apiService.deleteVoice(voteId);
+    SetVoices(voices => voices.filter(voice => voice.id !== voteId));
+  };
 
   const addFavorite = data => {
     data = {
@@ -83,10 +87,13 @@ const Voting = () => {
       sub_id: sub_id,
     };
     apiService.addFavouriteCat(data).then(res => {
-      SetFavorite();
+      SetFavorite(prevState => [...prevState, data]);
     });
   };
-
+  const deleteFavourite = async favId => {
+    await apiService.deleteFavouriteCat(favId);
+    SetFavorite(favorite => favorite.filter(fav => fav.id !== favId));
+  };
   const onLoadMore = () => {
     SetPage(prevState => prevState + 1);
   };
@@ -113,7 +120,14 @@ const Voting = () => {
         <PageNext />
       </button>
       {reqStatus === 'pending' && <Loader />}
-      {voices && favorite && <VotingList voices={voices} favorite={favorite} />}
+      {voices && favorite && (
+        <VotingList
+          voices={voices}
+          favorite={favorite}
+          deleteVote={deleteVote}
+          deleteFavourite={deleteFavourite}
+        />
+      )}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ReactComponent as Favorite } from '../../image/fav-20.svg';
+import { ReactComponent as Delete } from '../../image/cansel.svg';
 import * as apiService from '../../apiService/apiService';
 import s from './FavoritePage.module.scss';
 import PageContainer from 'components/PageContainer/PageContainer';
@@ -30,6 +31,11 @@ const FavoritePage = () => {
     onFetchFavorite();
   }, []);
 
+  const deleteFavourite = async favId => {
+    await apiService.deleteFavouriteCat(favId);
+    SetFavorite(favorite => favorite.filter(fav => fav.id !== favId));
+  };
+
   return (
     <PageContainer>
       <Menu />
@@ -40,27 +46,31 @@ const FavoritePage = () => {
         {favorite && (
           <ul className={s.favList}>
             {favorite.map(fav => (
-              <li key={fav.id} className={s.favList_item}>
-                <img
-                  src={fav.image.url}
-                  alt={fav.alt}
-                  width="640px"
-                  height="360px"
-                />
-                <div>
+              <li key={fav.id}>
+                <div className={s.favList_img}>
+                  <img
+                    src={fav.image.url}
+                    alt={fav.alt}
+                    width="640px"
+                    height="360px"
+                  />
+                </div>
+
+                <div className={s.favList_item}>
                   <p className={s.favList_time}>
                     {fav.created_at.slice(11, -8)}
                   </p>
                   <p className={s.favList_voice_disc}>
                     Image ID: <span>{fav.image_id}</span> was added to Favorite
                   </p>
-                  <Favorite />
+                  <div className={s.button_container}>
+                    <Favorite width="20px" height="20px" />
+                    <Delete
+                      className={s.button_delete}
+                      onClick={() => deleteFavourite(fav.id)}
+                    />
+                  </div>
                 </div>
-                <p className={s.favList_time}>{fav.created_at.slice(11, -8)}</p>
-                <p className={s.favList_voice_disc}>
-                  Image ID: <span>{fav.image_id}</span> was added to Favorite
-                </p>
-                <Favorite />
               </li>
             ))}
           </ul>
