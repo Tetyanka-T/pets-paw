@@ -9,7 +9,6 @@ import DislikePage from 'pages/DislikePage/DislikePage';
 import FavoritePage from 'pages/FavoritePage/FavoritePage';
 import LikePage from 'pages/LikePage/LikePage';
 import Loader from 'components/Loader/Loader';
-import SearchPage from 'pages/SearchPage/SearchPage';
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
         <Route exact path="/favorite" element={<FavoritePage />} />
 
         <Route path="/dislike" element={<DislikePage />} />
-        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </Suspense>
   );

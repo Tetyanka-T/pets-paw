@@ -1,12 +1,10 @@
-import { Link } from 'react-router-dom';
 import { ReactComponent as Search } from '../../image/search.svg';
 import s from './SearchForm.module.scss';
 
 const SearchForm = ({ onSearch }) => {
   const handleSearch = e => {
     e.preventDefault();
-    const searchCat = e.target.elements.searchCatName.value;
-    onSearch(searchCat.slice(0, 3));
+    onSearch(e.target.elements.searchCatName.value);
   };
 
   return (
@@ -19,11 +17,9 @@ const SearchForm = ({ onSearch }) => {
         autoFocus
         placeholder="Search for breeds by name"
       />
-      <Link to="/search">
-        <button type="submit" className={s.button}>
-          <Search />
-        </button>
-      </Link>
+      <button type="submit" className={s.button}>
+        <Search />
+      </button>
     </form>
   );
 };

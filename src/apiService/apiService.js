@@ -30,6 +30,12 @@ export const fetchCatForBreedsInfo = async breedId => {
   return allBreedsInfo;
 };
 
+export const fetchCat = async breedId => {
+  const response = await axios.get(`/images/search?breed_ids=${breedId}`);
+  const cat = response.data[0];
+  return cat;
+};
+
 export const getRandomCat = async page => {
   const response = await axios.get(`/images/search?${page}`);
   const randomCat = response.data[0];
@@ -49,7 +55,6 @@ export const fetchType = async type => {
     `/images/search?limit=20&mime_types=${type}`,
   );
   const typeInfo = response.data;
-
   return typeInfo;
 };
 
@@ -59,11 +64,9 @@ export const fetchLimit = async limit => {
   return limitPhoto;
 };
 
-export const fetchSearchCats = async (searchCat, page) => {
-  const response = await axios.get(
-    `/breeds/search?q=${searchCat}&page=${page}&limit=10`,
-  );
-  const cats = response.data;
+export const fetchSearchCats = async searchCat => {
+  const response = await axios.get(`/breeds/search?q=${searchCat}`);
+  const cats = response.data[0];
   return cats;
 };
 
