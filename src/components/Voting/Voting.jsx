@@ -64,6 +64,8 @@ const Voting = () => {
     apiService.postVoices(data).then(res => {
       SetVoices(prevState => [...prevState, data]);
     });
+    apiService.getVoices().then(SetVoices);
+    onLoadMore();
   };
 
   const addDislike = data => {
@@ -75,6 +77,8 @@ const Voting = () => {
     apiService.postVoices(data).then(res => {
       SetVoices(prevState => [...prevState, data]);
     });
+
+    onLoadMore();
   };
   const deleteVote = async voteId => {
     await apiService.deleteVoice(voteId);
@@ -89,6 +93,7 @@ const Voting = () => {
     apiService.addFavouriteCat(data).then(res => {
       SetFavorite(prevState => [...prevState, data]);
     });
+    onLoadMore();
   };
   const deleteFavourite = async favId => {
     await apiService.deleteFavouriteCat(favId);

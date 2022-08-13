@@ -5,6 +5,14 @@ import { ReactComponent as Delete } from '../../image/cansel.svg';
 import s from './VotingList.module.scss';
 
 const VotingList = ({ voices, favorite, deleteVote, deleteFavourite }) => {
+  const getTime = () => {
+    let h = new Date().getHours();
+    let m = new Date().getMinutes();
+    h = h < 10 ? '0' + h : h;
+    m = m < 10 ? '0' + m : m;
+    let time = h + ':' + m;
+    return time;
+  };
   return (
     <>
       {voices && (
@@ -12,7 +20,7 @@ const VotingList = ({ voices, favorite, deleteVote, deleteFavourite }) => {
           {voices.map(voice => (
             <li key={voice.id} className={s.votingList_item}>
               <span className={s.votingList_time}>
-                {/* {voice.created_at.slice(11, -8)} */}
+                {getTime(voice.created_at)}
               </span>
               {voice.value === 1 && (
                 <>
@@ -50,9 +58,7 @@ const VotingList = ({ voices, favorite, deleteVote, deleteFavourite }) => {
         <ul className={s.votingList}>
           {favorite.map(fav => (
             <li key={fav.id} className={s.votingList_item}>
-              <p className={s.votingList_time}>
-                {/* {fav.created_at.slice(11, -8)} */}
-              </p>
+              <p className={s.votingList_time}>{getTime(fav.created_at)}</p>
               <p className={s.votingList_voice_disc}>
                 Image ID: <span>{fav.image_id}</span> was added to Favorite
               </p>

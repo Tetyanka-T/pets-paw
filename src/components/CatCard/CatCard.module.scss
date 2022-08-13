@@ -36,7 +36,6 @@
 .card_thumb {
   width: 600px;
   height: 360px;
-  border-radius: 20px;
   border: solid 2px $accent-color;
   margin-top: 20px;
   margin-bottom: 50px;
@@ -68,7 +67,6 @@
   position: absolute;
   left: 250px;
   top: -30px;
-  // width: 180px;
   background-color: #fff;
 }
 .cat_family {
@@ -97,7 +95,6 @@
 .cat_temp {
   margin-left: 40px;
 }
-
 .cat_span {
   display: inline-block;
   text-align: left;

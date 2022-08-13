@@ -43,6 +43,11 @@ const FavoritePage = () => {
         <ComeBackButton />
         <h2>Your Favorites Photo</h2>
         {reqStatus === 'pending' && <Loader />}
+        {favorite.length === 0 && (
+          <h3 className={s.no_voting}>
+            You don't have any favorite photos yet
+          </h3>
+        )}
         {favorite && (
           <ul className={s.favList}>
             {favorite.map(fav => (
@@ -55,7 +60,6 @@ const FavoritePage = () => {
                     height="360px"
                   />
                 </div>
-
                 <div className={s.favList_item}>
                   <p className={s.favList_time}>
                     {fav.created_at.slice(11, -8)}
