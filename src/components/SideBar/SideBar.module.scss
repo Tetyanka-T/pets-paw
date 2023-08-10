@@ -1,0 +1,45 @@
+@use '.././shared/variables' as *;
+
+.menuContainer {
+  padding-left: 20px;
+  //   padding-right: 72px;
+  position: sticky;
+  top: 10px;
+}
+.title {
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.32;
+  color: $text-color;
+  margin-top: 80px;
+  margin-bottom: 10px;
+}
+.welcome {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.45;
+  color: $main-color;
+  margin-bottom: 60px;
+}
+.start {
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.45;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+.menuList {
+  & .menuItem:last-child {
+    margin-bottom: 0;
+  }
+}
+.menuItem {
+  margin-bottom: 16px;
+}
+.menuIcon {
+  display: block;
+  margin-bottom: 20px;
+}

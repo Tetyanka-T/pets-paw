@@ -1,11 +1,22 @@
 @use '.././shared/variables' as *;
-
 .container {
-  width: $desktop;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
+  width: $tablet;
+  // display: flex;
+  // justify-content: center;
+  padding: 0 20px 0 20px;
+  // position: relative;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: $desktop;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

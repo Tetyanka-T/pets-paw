@@ -16,3 +16,6 @@ $white-color: #fff;
 $background-color: #e5e5e5;
 $background-color-second: #fbe0dc;
 $form-color: #f8f8f7;
+
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+$sidebar-bg-color: #8c8c8c !default;
