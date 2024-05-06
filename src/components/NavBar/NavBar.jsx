@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import Menu from 'components/Menu/Menu';
 import { ReactComponent as MenuButton } from '../../image/menu.svg';
 import { ReactComponent as CloseMenu } from '../../image/cansel.svg';
-import s from './NavBar.module.scss';
 import SideBar from 'components/SideBar/SideBar';
+import s from './NavBar.module.scss';
 
 const NavBar = () => {
   const [showMenu, SetShowMenu] = useState(false);

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
+import * as apiService from '../../apiService/apiService';
 import CatList from 'components/CatList/CatList';
 import GalleryFilter from 'components/GalleryFilter/GalleryFilter';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
-import * as apiService from '../../apiService/apiService';
-
 import s from './Gallery.module.scss';
 
 const Gallery = () => {

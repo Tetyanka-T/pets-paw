@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
+import * as apiService from '../../apiService/apiService';
 import { ReactComponent as Dislike } from '../../image/dislike-20.svg';
 import { ReactComponent as Delete } from '../../image/cansel.svg';
-import * as apiService from '../../apiService/apiService';
 import PageContainer from 'components/PageContainer/PageContainer';
 import Menu from 'components/Menu/Menu';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
-import s from '../../components/VotingList/VotingList.module.scss';
 import NavBar from 'components/NavBar/NavBar';
+import s from '../../components/VotingList/VotingList.module.scss';
 
 const DislikePage = () => {
   const [voices, SetVoices] = useState();

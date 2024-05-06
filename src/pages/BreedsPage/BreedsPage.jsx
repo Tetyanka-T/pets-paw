@@ -5,8 +5,8 @@ import Menu from 'components/Menu/Menu';
 import SearchForm from 'components/SearchForm/SearchForm';
 import LinksPanel from 'components/LinksPanel/LinksPanel';
 import CatCard from 'components/CatCard/CatCard';
-import s from './BreedsPage.module.scss';
 import NavBar from 'components/NavBar/NavBar';
+import s from './BreedsPage.module.scss';
 
 const BreedsPge = () => {
   const [searchCat, SetSearchCat] = useState(null);

@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import * as apiService from '../../apiService/apiService';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
-import s from './CatCard.module.scss';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFlip, Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-flip';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import s from './CatCard.module.scss';
 
 const CatCard = ({ cat }) => {
   const [photos, SetPhoto] = useState('');

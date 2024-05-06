@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import * as apiService from '../../apiService/apiService';
-import { ReactComponent as PagePrev } from '../../image/prev-grey.svg';
-import { ReactComponent as PageNext } from '../../image/next-grey.svg';
 import Loader from 'components/Loader/Loader';
-import s from './Breeds.module.scss';
 import CatList from 'components/CatList/CatList';
 import BreedsFilter from 'components/BreedsFilter/BreedsFilter';
+import { ReactComponent as PagePrev } from '../../image/prev-grey.svg';
+import { ReactComponent as PageNext } from '../../image/next-grey.svg';
+import s from './Breeds.module.scss';
 
 const Breeds = () => {
   const [cats, SetCats] = useState([]);

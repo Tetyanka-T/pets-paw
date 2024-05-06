@@ -1,9 +1,8 @@
+import { Link } from 'react-router-dom';
 import { ReactComponent as Like } from '../../image/like.svg';
 import { ReactComponent as Favorite } from '../../image/hart-white.svg';
 import { ReactComponent as DisLike } from '../../image/dislike.svg';
-
 import s from './LinksPanel.module.scss';
-import { Link } from 'react-router-dom';
 
 const LinksPanel = () => {
   return (

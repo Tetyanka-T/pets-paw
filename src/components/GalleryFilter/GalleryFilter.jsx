@@ -1,5 +1,4 @@
 import { ReactComponent as ShowMore } from '../../image/update.svg';
-
 import s from './GalleryFilter.module.scss';
 
 const GalleryFilter = ({ breeds, onChange, limit, order, type, onClick }) => {

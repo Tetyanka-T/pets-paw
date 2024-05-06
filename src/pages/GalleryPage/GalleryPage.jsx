@@ -5,8 +5,8 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import LinksPanel from 'components/LinksPanel/LinksPanel';
 import Menu from 'components/Menu/Menu';
 import CatCard from 'components/CatCard/CatCard';
-import s from '../BreedsPage/BreedsPage.module.scss';
 import NavBar from 'components/NavBar/NavBar';
+import s from '../BreedsPage/BreedsPage.module.scss';
 
 const GalleryPage = () => {
   const [searchCat, SetSearchCat] = useState(null);

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
+import * as apiService from '../../apiService/apiService';
 import { ReactComponent as Favorite } from '../../image/fav-20.svg';
 import { ReactComponent as Delete } from '../../image/cansel.svg';
-import * as apiService from '../../apiService/apiService';
-import s from './FavoritePage.module.scss';
 import PageContainer from 'components/PageContainer/PageContainer';
 import Menu from 'components/Menu/Menu';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
 import NavBar from 'components/NavBar/NavBar';
+import s from './FavoritePage.module.scss';
 
 const FavoritePage = () => {
   const [favorite, SetFavorite] = useState('');

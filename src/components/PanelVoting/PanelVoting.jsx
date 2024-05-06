@@ -1,9 +1,7 @@
 import { ReactComponent as Like } from '../../image/like.svg';
-
 import { ReactComponent as DisLike } from '../../image/dislike.svg';
 import { ReactComponent as Favorite } from '../../image/hart-white.svg';
 import { ReactComponent as FavoriteSelected } from '../../image/favorite.svg';
-
 import s from './PanelVoting.module.scss';
 
 const PanelVoting = ({ addLike, addDislike, addFavorite }) => {
