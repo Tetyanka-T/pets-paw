@@ -6,7 +6,6 @@ import Loader from 'components/Loader/Loader';
 import s from './Breeds.module.scss';
 import CatList from 'components/CatList/CatList';
 import BreedsFilter from 'components/BreedsFilter/BreedsFilter';
-// import CatCard from 'components/CatCard/CatCard';
 
 const Breeds = () => {
   const [cats, SetCats] = useState([]);

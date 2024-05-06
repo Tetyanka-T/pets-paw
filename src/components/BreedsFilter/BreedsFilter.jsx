@@ -6,8 +6,11 @@ import s from './BreedsFilter.module.scss';
 const BreedsFilter = ({ onChange, breeds, onClick, limit }) => {
   return (
     <div className={s.breeds_button}>
-      <ComeBackButton />
-      <p className={s.breeds_title}>BREEDS</p>
+      <div className={s.breeds_buttoncontainer}>
+        <ComeBackButton />
+        <p className={s.breeds_title}>BREEDS</p>
+      </div>
+
       <select
         value={breeds}
         id="breeds"

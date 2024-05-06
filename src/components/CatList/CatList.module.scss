@@ -1,27 +1,11 @@
 @use '../../components/shared/variables' as *;
 
-.imageList {
-  grid-gap: 20px;
-  display: grid;
-  grid-auto-rows: 140px;
-  grid-template-columns: repeat(3, 1fr);
-}
-.imageList_item:nth-child(10n + 1),
-.imageList_item:nth-child(8n + 8) {
-  grid-column: auto/span 1;
-  grid-row: auto/span 2;
-}
-.imageList_item:nth-child(10n + 4),
-.imageList_item:nth-child(10n + 9) {
-  grid-column: auto/span 2;
-  grid-row: auto/span 2;
-}
-
 .imageList_item {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 15px;
 
   &:hover .imageList_photo {
     opacity: 1;
@@ -86,5 +70,72 @@
 
   & svg {
     fill: $accent-color;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .imageList {
+    grid-gap: 20px;
+    display: grid;
+    grid-auto-rows: 140px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .imageList_item:nth-child(10n + 1),
+  .imageList_item:nth-child(8n + 8) {
+    grid-column: auto/span 1;
+    grid-row: auto/span 2;
+  }
+  .imageList_item:nth-child(10n + 4),
+  .imageList_item:nth-child(10n + 9) {
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+  }
+
+  .imageList_item {
+    margin-bottom: 0;
+  }
+
+  .imageList_photo {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .imageList_itemTitle {
+    display: none;
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+    right: 10px;
+    height: 34px;
+    text-align: center;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: $accent-color;
+    background-color: $white-color;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .imageList_itemButton {
+    width: 40px;
+    height: 40px;
+    background-color: $white-color;
+    border-radius: 10px;
+    display: none;
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    left: 80px;
+    right: 80px;
+
+    & svg {
+      fill: $accent-color;
+    }
   }
 }

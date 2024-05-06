@@ -3,7 +3,6 @@ import CatList from 'components/CatList/CatList';
 import GalleryFilter from 'components/GalleryFilter/GalleryFilter';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
-// import { ReactComponent as DownLoad } from '../../image/download.svg';
 import * as apiService from '../../apiService/apiService';
 
 import s from './Gallery.module.scss';
@@ -75,10 +74,6 @@ const Gallery = () => {
         <button type="button" className={s.galleryButton_gallery}>
           GALLERY
         </button>
-        {/* <button type="button" className={s.galleryButton_download}>
-          <DownLoad />
-          <span className={s.button_title}>Upload</span>
-        </button> */}
       </div>
       <GalleryFilter
         limit={limit}

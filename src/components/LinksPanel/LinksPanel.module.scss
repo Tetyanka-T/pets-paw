@@ -2,6 +2,8 @@
 
 .linksList {
   display: flex;
+  margin-top: 15px;
+  justify-content: center;
 
   & .linksList_item:last-child {
     margin-right: 0;

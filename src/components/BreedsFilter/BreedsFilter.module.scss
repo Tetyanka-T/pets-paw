@@ -1,11 +1,9 @@
 @use '../shared/variables' as *;
-.breeds_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
 
+.breeds_buttoncontainer {
+  display: flex;
+  margin-bottom: 15px;
+}
 .breeds_title {
   display: flex;
   justify-content: center;
@@ -26,24 +24,24 @@
 select {
   height: 40px;
   padding-left: 8px;
-
   border-radius: 10px;
   font-family: $main-font;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: $main-color;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+
   border: none;
+  margin-bottom: 15px;
 
   &:hover {
     border: solid 1px $accent-color;
   }
 }
 .select_breeds {
-  width: 226px;
-  margin-left: 10px;
+  width: 250px;
+  // margin-left: 10px;
   background-color: $form-color;
 }
 
@@ -76,5 +74,23 @@ button svg {
     & svg {
       fill: $white-color;
     }
+  }
+}
+@media screen and (min-width: 768px) {
+  .breeds_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .breeds_buttoncontainer {
+    margin-bottom: 0;
+  }
+  .select_breeds {
+    width: 220px;
+    margin-left: 10px;
+  }
+  select {
+    margin-bottom: 0;
   }
 }

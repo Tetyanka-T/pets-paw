@@ -1,0 +1,41 @@
+@use '../shared/variables' as *;
+
+.navBarContainer {
+  padding: 10px;
+}
+
+.menuButton {
+  display: flex;
+  margin-left: auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  left: 280px;
+  z-index: 12;
+}
+
+.siderBar {
+  position: absolute;
+  padding: 20px;
+  top: 0px;
+  left: 0;
+  z-index: 10;
+  background-color: $background-color;
+  width: 320px;
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .closeButton {
+    left: 700px;
+    top: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navBarContainer {
+    display: none;
+  }
+}

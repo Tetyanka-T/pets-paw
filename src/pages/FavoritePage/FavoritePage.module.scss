@@ -3,32 +3,17 @@
 .favList {
   margin-top: 15px;
 
-  &.li {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-.favList_img {
-  width: 600px;
-  height: 360px;
-  border-radius: 20px;
-  border: solid 2px $accent-color;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-  & img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 20px;
+  & li {
+    margin: 0 auto;
+    & img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
 .favList_item {
   display: flex;
-  width: 570px;
   background-color: $form-color;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -67,4 +52,15 @@
 .button_delete {
   fill: $accent-color;
   margin-left: 5px;
+}
+@media screen and (min-width: 1200px) {
+  .favList {
+    & li {
+      width: 600px;
+      & img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }

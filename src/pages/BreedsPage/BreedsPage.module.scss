@@ -1,7 +1,21 @@
-.search {
-  display: flex;
+.menu {
+  display: none;
 }
 
-.button {
-  margin-top: 15px;
+@media screen and (min-width: 1200px) {
+  .tabletwidth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .votingPage {
+    padding-top: 20px;
+  }
+
+  .button {
+    margin-top: 15px;
+  }
+  .menu {
+    display: block;
+  }
 }

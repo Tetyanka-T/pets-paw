@@ -13,12 +13,12 @@
   font-size: 20px;
   line-height: 1.5;
   letter-spacing: 2px;
+  margin-bottom: 15px;
 }
 .catCard_Button_title {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 143px;
   color: $accent-color;
   background-color: $background-color-second;
   border-radius: 10px;
@@ -34,18 +34,12 @@
   border-radius: 10px;
 }
 .card_thumb {
-  width: 600px;
-  height: 360px;
-  border: solid 2px $accent-color;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   overflow: hidden;
 }
 .card_photo {
   display: block;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   width: 100%;
 }
@@ -55,8 +49,9 @@
   position: relative;
   margin-right: auto;
   margin-left: auto;
-  width: 600px;
+  margin-top: 30px;
   text-align: left;
+  padding: 5px;
 }
 .cat_breed {
   font-family: $main-font;
@@ -65,7 +60,7 @@
   line-height: 1.44;
   color: $text-color;
   position: absolute;
-  left: 250px;
+  // left: 250px;
   top: -30px;
   background-color: #fff;
 }
@@ -77,7 +72,7 @@
   color: $main-color;
   margin-top: 15px;
   margin-bottom: 20px;
-  max-width: 590px;
+  // max-width: 590px;
   padding: 5px;
 }
 .cat_desc {
@@ -93,7 +88,7 @@
   margin-bottom: 40px;
 }
 .cat_temp {
-  margin-left: 40px;
+  // margin-left: 40px;
 }
 .cat_span {
   display: inline-block;
@@ -105,5 +100,37 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .catCard_Button_title {
+    width: 143px;
+  }
+  .catCard_Button_catId {
+    width: 90px;
+  }
+  .card_thumb {
+    width: 600px;
+  }
+
+  .wrapper_desc {
+    width: 600px;
+  }
+  .cat_breed {
+    position: absolute;
+    left: 250px;
+    top: -30px;
+  }
+  .cat_family {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    max-width: 590px;
+  }
+  .cat_desc {
+    margin-bottom: 40px;
+  }
+  .cat_temp {
+    margin-left: 40px;
   }
 }

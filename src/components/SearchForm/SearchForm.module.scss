@@ -2,11 +2,9 @@
 
 .searchForm {
   display: flex;
-  width: 400px;
   background-color: $white-color;
   border-radius: 20px;
   padding: 10px 10px 10px 20px;
-  margin-right: 10px;
 
   &:focus {
     border: $accent-color;
@@ -17,14 +15,25 @@
   height: 40px;
   background-color: $background-color-second;
   border-radius: 10px;
+  margin-left: auto;
 }
 
 .searchForm_input {
   display: block;
-  width: 470px;
+  width: 260px;
   font-family: $main-font;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.2;
   color: $main-color;
+}
+@media screen and (min-width: 768px) {
+  // .searchForm {
+
+  // }
+
+  .searchForm_input {
+    width: 470px;
+    font-size: 20px;
+  }
 }

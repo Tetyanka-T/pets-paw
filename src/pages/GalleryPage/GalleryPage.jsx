@@ -3,11 +3,10 @@ import * as apiService from '../../apiService/apiService';
 import Gallery from 'components/Gallery/Gallery';
 import SearchForm from 'components/SearchForm/SearchForm';
 import LinksPanel from 'components/LinksPanel/LinksPanel';
-import Container from 'components/Container/Container';
-import PageContainer from 'components/PageContainer/PageContainer';
 import Menu from 'components/Menu/Menu';
 import CatCard from 'components/CatCard/CatCard';
 import s from '../BreedsPage/BreedsPage.module.scss';
+import NavBar from 'components/NavBar/NavBar';
 
 const GalleryPage = () => {
   const [searchCat, SetSearchCat] = useState(null);
@@ -27,17 +26,22 @@ const GalleryPage = () => {
     SetSearchCat(searchCat);
   };
   return (
-    <PageContainer>
-      <Menu />
-      <Container>
-        <div className={s.search}>
-          <SearchForm onSearch={handleSearchCat} />
-          <LinksPanel />
+    <div className="container">
+      <NavBar />
+      <div className={s.tabletwidth}>
+        <div className={s.menu}>
+          <Menu />
         </div>
-        {!searchCat && <Gallery />}
-        {searchCat && <CatCard cat={cats} />}
-      </Container>
-    </PageContainer>
+        <div className={s.votingPage}>
+          <div className={s.search}>
+            <SearchForm onSearch={handleSearchCat} />
+            <LinksPanel />
+          </div>
+          {!searchCat && <Gallery />}
+          {searchCat && <CatCard cat={cats} />}
+        </div>
+      </div>
+    </div>
   );
 };
 

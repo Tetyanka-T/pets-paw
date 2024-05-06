@@ -5,9 +5,9 @@ import * as apiService from '../../apiService/apiService';
 import s from './FavoritePage.module.scss';
 import PageContainer from 'components/PageContainer/PageContainer';
 import Menu from 'components/Menu/Menu';
-import Container from 'components/Container/Container';
 import ComeBackButton from 'components/ComeBack/ComeBackButton';
 import Loader from 'components/Loader/Loader';
+import NavBar from 'components/NavBar/NavBar';
 
 const FavoritePage = () => {
   const [favorite, SetFavorite] = useState('');
@@ -39,7 +39,8 @@ const FavoritePage = () => {
   return (
     <PageContainer>
       <Menu />
-      <Container>
+      <div className="container">
+        <NavBar />
         <ComeBackButton />
         <h2>Your Favorites Photo</h2>
         {reqStatus === 'pending' && <Loader />}
@@ -52,14 +53,7 @@ const FavoritePage = () => {
           <ul className={s.favList}>
             {favorite.map(fav => (
               <li key={fav.id}>
-                <div className={s.favList_img}>
-                  <img
-                    src={fav.image.url}
-                    alt={fav.alt}
-                    width="640px"
-                    height="360px"
-                  />
-                </div>
+                <img src={fav.image.url} alt={fav.alt} />
                 <div className={s.favList_item}>
                   <p className={s.favList_time}>
                     {fav.created_at.slice(11, -8)}
@@ -79,7 +73,7 @@ const FavoritePage = () => {
             ))}
           </ul>
         )}
-      </Container>
+      </div>
     </PageContainer>
   );
 };

@@ -1,13 +1,20 @@
 @use '../shared/variables' as *;
 
 .votingList_item {
-  display: flex;
-  width: 570px;
   background-color: $form-color;
   margin-top: 15px;
   margin-bottom: 10px;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
+  & img {
+    width: 260px;
+    height: auto;
+    margin: 0 auto;
+  }
+  & .item_content {
+    margin-top: 20px;
+    display: flex;
+  }
 }
 
 .votingList_time {
@@ -36,14 +43,24 @@
 }
 .button_container {
   display: flex;
-  margin-left: auto;
+  justify-content: center;
+  margin-top: 20px;
 }
 .button_delete {
   fill: $accent-color;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .no_voting {
   margin-top: 50px;
   font-family: $main-font;
+}
+
+@media screen and (min-width: 768px) {
+  .votingList_item {
+    width: 570px;
+    & img {
+      width: 100%;
+    }
+  }
 }

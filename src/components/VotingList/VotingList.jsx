@@ -24,6 +24,7 @@ const VotingList = ({ voices, favorite, deleteVote, deleteFavourite }) => {
               </span>
               {voice.value === 1 && (
                 <>
+                  <img src={voice.image.url} alt={voice.alt} />
                   <p className={s.votingList_voice_disc}>
                     Image ID: <span>{voice.image_id}</span> was added to Like
                   </p>
@@ -38,6 +39,7 @@ const VotingList = ({ voices, favorite, deleteVote, deleteFavourite }) => {
               )}
               {voice.value === 0 && (
                 <>
+                  <img src={voice.image.url} alt={voice.alt} />
                   <p className={s.votingList_voice_disc}>
                     Image ID: <span>{voice.image_id}</span> was added to Dislike
                   </p>
@@ -58,6 +60,7 @@ const VotingList = ({ voices, favorite, deleteVote, deleteFavourite }) => {
         <ul className={s.votingList}>
           {favorite.map(fav => (
             <li key={fav.id} className={s.votingList_item}>
+              <img src={fav.image.url} alt={fav.alt} />
               <p className={s.votingList_time}>{getTime(fav.created_at)}</p>
               <p className={s.votingList_voice_disc}>
                 Image ID: <span>{fav.image_id}</span> was added to Favorite

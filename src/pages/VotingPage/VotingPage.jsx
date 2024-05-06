@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import * as apiService from '../../apiService/apiService';
 import Menu from 'components/Menu/Menu';
-import PageContainer from 'components/PageContainer/PageContainer';
 import SearchForm from 'components/SearchForm/SearchForm';
 import LinksPanel from 'components/LinksPanel/LinksPanel';
 import Voting from 'components/Voting/Voting';
-import Container from 'components/Container/Container';
 import CatCard from 'components/CatCard/CatCard';
 import s from '../BreedsPage/BreedsPage.module.scss';
+import NavBar from 'components/NavBar/NavBar';
 
 const VotingPage = () => {
   const [searchCat, SetSearchCat] = useState(null);
@@ -27,17 +26,23 @@ const VotingPage = () => {
     SetSearchCat(searchCat);
   };
   return (
-    <PageContainer>
-      <Menu />
-      <Container>
-        <div className={s.search}>
-          <SearchForm onSearch={handleSearchCat} />
-          <LinksPanel />
+    <div className="container">
+      <NavBar />
+      <div className={s.tabletwidth}>
+        <div className={s.menu}>
+          <Menu />
         </div>
-        {!searchCat && <Voting />}
-        {searchCat && <CatCard cat={cats} />}
-      </Container>
-    </PageContainer>
+
+        <div className={s.votingPage}>
+          <div className={s.search}>
+            <SearchForm onSearch={handleSearchCat} />
+            <LinksPanel />
+          </div>
+          {!searchCat && <Voting />}
+          {searchCat && <CatCard cat={cats} />}
+        </div>
+      </div>
+    </div>
   );
 };
 

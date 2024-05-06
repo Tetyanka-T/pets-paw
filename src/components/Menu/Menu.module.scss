@@ -1,10 +1,18 @@
 @use '.././shared/variables' as *;
 
 .menuContainer {
-  padding-left: 100px;
-  padding-right: 72px;
-  position: sticky;
-  top: 10px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.menuList {
+  margin: 0 auto;
+  & .menuItem:last-child {
+    margin-bottom: 0;
+  }
+}
+.menuItem {
+  margin-bottom: 15px;
+  width: 140px;
 }
 .title {
   font-family: $main-font;
@@ -31,16 +39,29 @@
   color: $text-color;
   margin-bottom: 20px;
 }
-.menuList {
-  display: flex;
-  & .menuItem:last-child {
-    margin-right: 0;
-  }
-}
-.menuItem {
-  margin-right: 16px;
-}
+
 .menuIcon {
   display: block;
   margin-bottom: 20px;
+}
+@media screen and (min-width: 1200px) {
+  .menuContainer {
+    padding-top: 20px;
+    display: block;
+    margin-right: 100px;
+  }
+
+  .menuList {
+    display: flex;
+    & .menuItem:last-child {
+      margin-right: 0;
+    }
+  }
+  .menuItem {
+    margin-right: 10px;
+  }
+  .menuIcon {
+    display: block;
+    margin-bottom: 20px;
+  }
 }

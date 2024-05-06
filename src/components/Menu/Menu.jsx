@@ -2,10 +2,10 @@ import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as LogoName } from '../../image/logo-name.svg';
 import { ReactComponent as Voting } from '../../image/voting.svg';
 import { ReactComponent as Breeds } from '../../image/breeds.svg';
-
-import s from './Menu.module.scss';
 import { ReactComponent as Gallery } from '../../image/img.svg';
-const Menu = () => {
+import s from './Menu.module.scss';
+
+const Menu = onClick => {
   return (
     <div className={s.menuContainer}>
       <Link to="/">
