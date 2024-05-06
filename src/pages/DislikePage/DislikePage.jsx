@@ -38,7 +38,9 @@ const DislikePage = () => {
 
   return (
     <PageContainer>
-      <Menu />
+      <div className={s.menu}>
+        <Menu />
+      </div>
       <div className="container">
         <NavBar />
         <ComeBackButton />

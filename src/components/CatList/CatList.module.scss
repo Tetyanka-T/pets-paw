@@ -1,5 +1,7 @@
 @use '../../components/shared/variables' as *;
-
+.imageList {
+  margin-top: 20px;
+}
 .imageList_item {
   position: relative;
   border-radius: 20px;

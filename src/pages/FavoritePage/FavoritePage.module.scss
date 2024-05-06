@@ -1,5 +1,7 @@
 @use '../../components/shared/variables' as *;
-
+.menu {
+  display: none;
+}
 .favList {
   margin-top: 15px;
 
@@ -62,5 +64,8 @@
         height: auto;
       }
     }
+  }
+  .menu {
+    display: block;
   }
 }

@@ -1,7 +1,9 @@
 @use '../shared/variables' as *;
 
 .navBarContainer {
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .menuButton {

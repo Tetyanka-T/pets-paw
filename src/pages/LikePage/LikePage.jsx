@@ -39,7 +39,9 @@ const LikePage = () => {
   return (
     <div className="container">
       <PageContainer>
-        <Menu />
+        <div className={s.menu}>
+          <Menu />
+        </div>
         <div className="container">
           <NavBar />
           <ComeBackButton />

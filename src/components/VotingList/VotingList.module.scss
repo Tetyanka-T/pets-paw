@@ -1,5 +1,7 @@
 @use '../shared/variables' as *;
-
+.menu {
+  display: none;
+}
 .votingList_item {
   background-color: $form-color;
   margin-top: 15px;
@@ -62,5 +64,10 @@
     & img {
       width: 100%;
     }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .menu {
+    display: block;
   }
 }
