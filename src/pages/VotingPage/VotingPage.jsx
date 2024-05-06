@@ -1,30 +1,12 @@
-import { useState, useEffect } from 'react';
-import * as apiService from '../../apiService/apiService';
 import Menu from 'components/Menu/Menu';
 import SearchForm from 'components/SearchForm/SearchForm';
 import LinksPanel from 'components/LinksPanel/LinksPanel';
 import Voting from 'components/Voting/Voting';
-import CatCard from 'components/CatCard/CatCard';
 import NavBar from 'components/NavBar/NavBar';
 import s from '../BreedsPage/BreedsPage.module.scss';
+import { Link } from 'react-router-dom';
 
 const VotingPage = () => {
-  const [searchCat, SetSearchCat] = useState(null);
-  const [cats, SetCats] = useState([]);
-
-  useEffect(() => {
-    apiService.fetchSearchCats(searchCat).then(SetCats);
-  }, [searchCat]);
-
-  const reset = () => {
-    SetSearchCat(null);
-    SetCats([]);
-  };
-
-  const handleSearchCat = searchCat => {
-    reset();
-    SetSearchCat(searchCat);
-  };
   return (
     <div className="container">
       <NavBar />
@@ -35,11 +17,12 @@ const VotingPage = () => {
 
         <div className={s.votingPage}>
           <div className={s.search}>
-            <SearchForm onSearch={handleSearchCat} />
+            <Link to="/search">
+              <SearchForm />
+            </Link>
             <LinksPanel />
           </div>
-          {!searchCat && <Voting />}
-          {searchCat && <CatCard cat={cats} />}
+          <Voting />
         </div>
       </div>
     </div>

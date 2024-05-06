@@ -9,6 +9,7 @@ import DislikePage from 'pages/DislikePage/DislikePage';
 import FavoritePage from 'pages/FavoritePage/FavoritePage';
 import LikePage from 'pages/LikePage/LikePage';
 import Loader from 'components/Loader/Loader';
+import SearchPage from 'pages/SearchPage/SearchPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/gallery" element={<GalleryPage />} />
 
         <Route exact path="/breeds" element={<BreedsPge />} />
+        <Route exact path="/search" element={<SearchPage />} />
 
         <Route path="breeds/:breedsId" element={<CatCard />} />
 

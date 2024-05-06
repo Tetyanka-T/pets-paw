@@ -1,7 +1,16 @@
+@use '../../components/shared/variables' as *;
 .menu {
   display: none;
 }
-
+.titleSerach {
+  margin-top: 50px;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  text-align: center;
+}
 @media screen and (min-width: 1200px) {
   .tabletwidth {
     display: grid;
